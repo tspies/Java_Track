@@ -3,5 +3,5 @@
 This is my venture into the Java programming language.
 
 **WeThinkCode_Projects**\
-    *Avaj-Launcher
-        *"Some text describing the project"
+    1.Avaj-Launcher
+        * Some text describing the project

@@ -1,13 +1,33 @@
 package Hanger;
 
+import Tower.Flyable;
 import Tower.WeatherTower;
 
-public class Helicopter {
-    protected WeatherTower weatherTower;
+public class Helicopter extends Aircraft implements Flyable {
+    private WeatherTower weatherTower;
 
     Helicopter(string name, Coordinates coordinates)
     {
-
+        // Using the 'super()' class to access parent classes' constructor
+        super(name, coordinates);
     }
-    pubilc
+    public void updateConditions()
+    {
+        String currentWeather = weatherTower.getWeather(this.coordinates);
+
+        switch (currentWeather) {
+            case "FOG":
+                this.coordinates = new Coordinates(coordinates.getLongitude() + 1, coordinates.getLatitude(), coordinates.getHeight());
+                break;
+            case "RAIN":
+                this.coordinates = new Coordinates(coordinates.getLongitude() + 5, coordinates.getLatitude(), coordinates.getHeight());
+                break;
+            case "SNOW":
+                this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 12);
+                break;
+            case "SUN":
+                this.coordinates = new Coordinates(coordinates.getLongitude() + 10, coordinates.getLatitude(), coordinates.getHeight() + 2);
+                break;
+        }
+    }
 }

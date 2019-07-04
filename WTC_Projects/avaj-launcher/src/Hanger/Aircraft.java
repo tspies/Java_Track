@@ -7,9 +7,12 @@ public class Aircraft {
 
     private long idCounter;
 
+
     protected long Aircraft(string name, Coordinates coordinates) {
 
+        this.name = name;
+        this.idCounter = nextId();
+        this.coordinates = coordinates;
     }
-    private long nextId() {
-    }
+    private long nextId() { return this.idCounter++;}
 }

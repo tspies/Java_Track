@@ -6,17 +6,28 @@ public class Coordinates {
     private int height;
 
     Coordinates(int longitude, int latitude, int height) {
-
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.height = height;
     }
     public int getLongitude() {
-        return longitude;
+        if (this.longitude == 0)
+            return (0);
+        else
+            return this.longitude;
     }
 
     public int getLatitude() {
-        return latitude;
-    }
+        if (this.latitude == 0)
+            return (0);
+        else
+        return this.latitude; }
 
     public int getHeight() {
-        return height;
-    }
+        if (this.height == 0)
+            return (0);
+        else if (height == 100)
+            return (100);
+        else
+            return this.height; }
 }

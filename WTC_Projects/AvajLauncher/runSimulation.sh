@@ -1,0 +1,1 @@
+java -cp src Hanger.Main scenario.txt

@@ -19,13 +19,13 @@ public class AircraftFactory {
             switch (vehicals.valueOf(type.toLowerCase()))
             {
                 case baloon:
-                    return null;
+                    return new baloon(name, cords);
 
                 case jetplane:
-                    return null;
+                    return new jetplane(name, cords);
 
                 case helicopter:
-                    return null;
+                    return new helicopter(name, cords)
             }
         }
         catch(FileNotFoundException ex)

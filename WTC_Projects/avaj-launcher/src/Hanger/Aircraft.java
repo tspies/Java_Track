@@ -5,7 +5,7 @@ public class Aircraft {
     protected string name;
     protected Coordinates coordinates;
 
-    private long idCounter;
+    private static long idCounter = 0;
 
 
     protected long Aircraft(string name, Coordinates coordinates) {

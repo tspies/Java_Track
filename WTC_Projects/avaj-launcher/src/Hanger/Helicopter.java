@@ -4,7 +4,7 @@ import Tower.Flyable;
 import Tower.WeatherTower;
 
 public class Helicopter extends Aircraft implements Flyable {
-    private WeatherTower weatherTower;
+    private WeatherTower _weatherTower;
 
     Helicopter(string name, Coordinates coordinates)
     {
@@ -29,5 +29,11 @@ public class Helicopter extends Aircraft implements Flyable {
                 this.coordinates = new Coordinates(coordinates.getLongitude() + 10, coordinates.getLatitude(), coordinates.getHeight() + 2);
                 break;
         }
+    }
+    public void registerTower(WeatherTower weatherTower)
+    {
+        Simulation.writer.println("Tower says: Helicopter#" + name + "(" + id + ")" + "registered to weather tower");
+        _weatherTower = weatherTower;
+        _weatherTower.register(this);
     }
 }

@@ -25,7 +25,6 @@ public class Baloon extends Aircraft implements Flyable {
             this.weatherTower.unregister(this);
         }
         else{
-            System.out.println("Balloon Wheather ---> " + currentWeather + "\n");
             if(currentWeather == "SUN") {
                 outLine = "Baloon#" + _name + "(" + _id + "): " + "Hmm it's sunny im just floating......all alone";
                 if (height + 4 >= 100) {

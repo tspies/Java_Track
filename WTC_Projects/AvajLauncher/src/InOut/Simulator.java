@@ -13,17 +13,17 @@ public class Simulator {
     static public void simulationOut(){
         try {
             writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("simulation.txt"), StandardCharsets.UTF_8));
-            writer.write("First Sim line\n\n");
-            for (String liner : outFileArray)
-                System.out.println(liner);
             for (String outLine : outFileArray){
-                writer.write("Hello Worlds\n");
                 writer.write(outLine);
             }
 
         }
         catch (IOException ex){
 
+        }finally {
+            try{
+                writer.close();
+            }catch(Exception ex){}
         }
     }
 

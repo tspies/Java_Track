@@ -1,0 +1,78 @@
+Tower says: baloon#B2(0) registered to  weather tower.
+Tower says: jetplane#J1(1) registered to  weather tower.
+Tower says: helicopter#H1(2) registered to  weather tower.
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Hmm it's sunny im just floating......all alone --> Maximum altitude reached!
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Ah what a rainy day we have here
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): It feels like im floating through a sauna....cold sauna
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Ah what a rainy day we have here
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): It feels like im floating through a sauna....cold sauna
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Ah what a rainy day we have here
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): It feels like im floating through a sauna....cold sauna
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Ah what a rainy day we have here
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): It feels like im floating through a sauna....cold sauna
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here
+Baloon#B2(0): Ah what a rainy day we have here
+Jetplane#J1(1): Ah what a rainy day we have here
+Helicopter#H1(2): Ah what a rainy day we have here

@@ -12,7 +12,7 @@ public abstract class Tower {
     public void register(Flyable flyable){
         if (!observers.contains(flyable)){
             observers.add(flyable);
-            String outLine = "Tower say: " + flyable.getType() + "#" + flyable.getName() + "(" + flyable.getId() + ")" +
+            String outLine = "Tower says: " + flyable.getType() + "#" + flyable.getName() + "(" + flyable.getId() + ")" +
                     " registered to  weather tower.";
             Simulator.appendOutFile(outLine);
         }
@@ -20,7 +20,7 @@ public abstract class Tower {
     public void unregister(Flyable flyable) {
         if (observers.contains(flyable)) {
             observers.remove(flyable);
-            String outLine = "Tower say: " + flyable.getType() + "#" + flyable.getName() + "(" + flyable.getId() + ")" +
+            String outLine = "Tower says: " + flyable.getType() + "#" + flyable.getName() + "(" + flyable.getId() + ")" +
                     " unregistered from weather tower.";
             Simulator.appendOutFile(outLine);
         }

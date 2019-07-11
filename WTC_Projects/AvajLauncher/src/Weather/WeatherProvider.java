@@ -14,9 +14,8 @@ public class WeatherProvider {
         return (weatherProvider);
     }
     public String getCurrentWeather(Coordinates coordinates){
-        return (weather[((coordinates.getLatitude() > 20) ? 1 : 0) +
-                ((coordinates.getLongitude() > 10) ? 1 : 0) +
-                ((coordinates.getHeight() > 5) ? 1 : 0)]);
+        int randSeed = coordinates.getHeight() + coordinates.getLongitude() + coordinates.getLatitude();
+        System.out.println(weather[randSeed % 4]);
+        return (weather[randSeed % 4]);
     }
-
 }

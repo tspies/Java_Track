@@ -32,11 +32,9 @@ public class Main {
 
                 for (int i = 0; i < simulationNum; i++)
                     weatherTower.weatherChange();
-                Simulator.appendOutFile("TEXTing while driving\n");
                 Simulator.simulationOut();
                 System.out.println("Finished main\n");
             }catch(IOException ex){
-                System.out.println("BROKEN!!!\n");
             }finally {
                 try{
                     if (buff != null)

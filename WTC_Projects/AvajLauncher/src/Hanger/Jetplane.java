@@ -29,17 +29,17 @@ public class Jetplane extends Aircraft implements Flyable {
         else{
             switch(currentWeather){
                 case "SUN":
-                    outLine = "This is golf 9er 9er checking in crzzz";
+                    outLine = "Jetplane#" + _name + "(" + _id + "): " + "This is golf 9er 9er checking in crzzz";
                     if (height + 2 >= 100)
                     {
                         _coordinates = new Coordinates(longitude, latitude + 10, 100);
-                        outLine += "Maximum altitude reached!";
+                        outLine += "Jetplane#" + _name + "(" + _id + "): " + "Maximum altitude reached!";
                     }
                     else
                         _coordinates = new Coordinates(longitude, latitude + 10, height + 2);
 
                 case "SNOW":
-                    outLine = "All snowed in, brrrrr";
+                    outLine = "Jetplane#" + _name + "(" + _id + "): " + "All snowed in, brrrrr";
                     if (height - 7 <= 0){
                         _coordinates = new Coordinates(longitude, latitude, 0);
                         outLine += " jet engines are taking strain going down!";
@@ -48,11 +48,11 @@ public class Jetplane extends Aircraft implements Flyable {
                         _coordinates = new Coordinates (longitude, latitude, height - 7);
 
                 case "FOG":
-                    outLine = "Foggy up here, difficult to see";
+                    outLine = "Jetplane#" + _name + "(" + _id + "): " + "Foggy up here, difficult to see";
                     _coordinates = new Coordinates(longitude, latitude + 1, height);
 
                 case "RAIN":
-                    outLine = "Ah what a rainy day we have here";
+                    outLine = "Jetplane#" + _name + "(" + _id + "): " + "Ah what a rainy day we have here";
                     _coordinates = new Coordinates(longitude, latitude + 5, height);
 
                     Simulator.appendOutFile(outLine);

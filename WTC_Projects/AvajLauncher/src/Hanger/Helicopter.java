@@ -29,11 +29,11 @@ public class Helicopter extends Aircraft implements Flyable {
         else{
             switch(currentWeather){
                 case "SUN":
-                    outLine = "Its a clear sky ahead huston, over crrrrzz ";
+                    outLine = "Helicopter#" + _name + "(" + _id + "): " + "Its a clear sky ahead huston, over crrrrzz ";
                     if (height + 2 >= 100)
                     {
                         _coordinates = new Coordinates(longitude + 10, latitude, 100);
-                        outLine += "Maximum altitude reached!";
+                        outLine += "Helicopter#" + _name + "(" + _id + "): " + "Maximum altitude reached!";
                     }
                     else
                         _coordinates = new Coordinates(longitude + 10, latitude, height + 2);
@@ -42,17 +42,17 @@ public class Helicopter extends Aircraft implements Flyable {
                     outLine = "All snowwed in, brrrrr";
                     if (height - 12 <= 0){
                         _coordinates = new Coordinates(longitude, latitude, 0);
-                        outLine += "the snow is too much we are going down!";
+                        outLine += "Helicopter#" + _name + "(" + _id + "): " + "the snow is too much we are going down!";
                     }
                     else
                         _coordinates = new Coordinates (longitude, latitude, height - 12);
 
                 case "FOG":
-                        outLine = "Foggy up here, difficult to see";
+                        outLine = "Helicopter#" + _name + "(" + _id + "): " + "Foggy up here, difficult to see";
                         _coordinates = new Coordinates(longitude + 1, latitude, height);
 
                 case "RAIN":
-                        outLine = "Ah what a rainy day we have here";
+                        outLine = "Helicopter#" + _name + "(" + _id + "): " +"Ah what a rainy day we have here";
                         _coordinates = new Coordinates(longitude + 5, latitude, height);
 
                 Simulator.appendOutFile(outLine);

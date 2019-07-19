@@ -1,0 +1,46 @@
+Hero Model:
+    _name: String
+    _class: String
+    _level: Int
+    _experience: Int
+    _attack: Int
+    _defense: Int
+    _hitpoints: Int
+
+--Heros Class Ideas--
+ = Warrior - High HP, High DF, Low AT
+ = Rogue - Mid HP, Low DF, Mid AT
+ = Mage - Low HP, Low DF, High AT
++++++++++++++++++++++++++++++++++++++++++++++
+
+Artifact Model:
+    _type: String (Weapon, Armor, Helmet)
+    _hitpointBuff: Int (relative to type)
+    _attackBuff: Int (relative to type)
+    _defenseBuff: Int (relative to type)
+
+--Artifact Ideas--
+ = Bat Wings - Armor ++smallAR
+ = Bone Skull - Helm ++largeHP
+ = Goblin Potion - Weapon ++smallATK
+ = Trolls Club - Weapon ++smallATK
+ = Stone Shield - Armor ++largeAR
+ = Fairy Dust - Helm ++smallHP
+ = Dragon Slayer Sword - Weapon ++largeATK
+ ++++++++++++++++++++++++++++++++++++++++++++
+
+ Enemy Model:
+    _type: String (Bat, Skelly, Goblin, Troll, Rock M, Fairy, Dragon)
+    _attackPower: Int
+    _attackDefense: Int
+    _health: Int
+    _artifact: String (realtive to type of enemy)
+
+--Enemy Statistics (ATL, DEF, HP)--
+ = Bat: ()
+ = Skelly: ()
+ = Goblin: ()
+ = Troll: ()
+ = Rock Monster: ()
+ = Fairy: ()
+ = Dragon: ()

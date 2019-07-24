@@ -1,22 +1,13 @@
 package Models.Artifacts;
 
-public abstract class BaseArtifact {
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
+
+@Getter
+@Setter
+public abstract class BaseArtifact implements Artifact {
     public int _effect;
     public String _type;
 
-    public void set_effect(int _effect) {
-        this._effect = _effect;
-    }
 
-    public void set_type(String _type) {
-        this._type = _type;
-    }
-
-    public int get_effect() {
-        return _effect;
-    }
-
-    public String get_type() {
-        return _type;
-    }
 }

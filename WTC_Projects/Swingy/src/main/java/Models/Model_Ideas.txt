@@ -44,3 +44,13 @@ Artifact Model:
  = Rock Monster: ()
  = Fairy: ()
  = Dragon: ()
+
+--Random Enemy Generator--
+ 1) Generate chance of enemy spawning on certain block.
+    -maybe try 20% chance of enemy generation. **
+    -10% chance of artifact drop. **
+
+ 2) Generate which enemy will swan wif chance was TRUE
+    -Maybe put a restriction in for lower level players
+        as to not spawn very strong enemies??? **
+    -Generate enemy and Fight.

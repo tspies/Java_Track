@@ -1,15 +1,18 @@
 package Models.Enemies;
 
-import Models.Heros.BaseHero;
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
 
-public abstract class BaseEnemy extends BaseHero {
+@Getter
+@Setter
+public abstract class BaseEnemy implements Villan {
     public String _artifact;
 
-    public String get_artifact() {
-        return _artifact;
-    }
-
-    public void set_artifact(String _artifact) {
-        this._artifact = _artifact;
-    }
+    public String _name;
+    public String _class;
+    public int _level;
+    public int _experience;
+    public int _attack;
+    public int _defense;
+    public int _hitpoints;
 }

@@ -1,13 +1,12 @@
 package Models.Enemies;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
-public abstract class BaseEnemy implements Villan {
+public abstract class BaseEnemy {
     public String _artifact;
-
     public String _name;
     public String _class;
     public int _level;

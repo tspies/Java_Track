@@ -1,11 +1,11 @@
 package Models.Heros;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
-public  abstract class BaseHero implements Hero{
+public  abstract class BaseHero{
     public String _name;
     public String _class;
     public int _level;
@@ -13,5 +13,7 @@ public  abstract class BaseHero implements Hero{
     public int _attack;
     public int _defense;
     public int _hitpoints;
+    public int _xCord;
+    public int _yCord;
 
 }

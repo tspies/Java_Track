@@ -1,9 +1,14 @@
 package Models.Heros;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
 
-@Getter
-@Setter
-public interface Hero {
+public class Hero extends BaseHero {
+    public Hero(String _name, String heroClass, int atk, int def, int HP){
+        set_name(_name);
+        set_class(heroClass);
+        set_level(1);
+        set_experience(0);
+        set_attack(atk);
+        set_defense(def);
+        set_hitpoints(HP);
+    }
 }

@@ -3,31 +3,32 @@ package Models.Enemies;
 import java.util.Random;
 
 public class EnemyFactory {
+
     private String[] enemyList = {"Bat", "DarkFairy", "Dragon", "Goblin", "Rock Giant", "Skeleton", "Troll"};
+    public Villan enemy = null;
     public Villan generateRandomEnemy(){
         Random spawnChance = new Random();
         if ((spawnChance.nextInt(10)) == 0|| (spawnChance.nextInt(10)) == 7){
             Random spawnEnemy = new Random();
             switch(enemyList[spawnEnemy.nextInt(8)]){
                 case "Bat":
-                    return new BatEnemy();
+                    enemy = new Villan("Bat Wings", "Bat", 1, 5, 5, 50);
                 case "DarkFairy":
-                    return new DarkFairyEnemy();
+                    enemy = new Villan("Fairy Dust", "Dark Fairy", 1, 5, 5, 50);
                 case "Dragon":
-                    return new DragonEnemy();
+                    enemy = new Villan("Dragon Slayer Sword", "Dragon", 1, 5, 5, 50);
                 case "Goblin":
-                    return new GoblinEnemy();
+                    enemy = new Villan("Goblin Potion", "Cave Goblin", 1, 5, 5, 50);
                 case "Rock Giant":
-                    return new RockGiantEnemy();
+                    enemy = new Villan("Stone Shield", "Rock Giant", 1, 5, 5, 50);
                 case "Skeleton":
-                    return new SkeletonEnemy();
+                    enemy = new Villan("Bone Skull", "Skeleton", 1, 5, 5, 50);
                 case "Troll":
-                    return new TrollEnemy();
+                    enemy = new Villan("Troll's Club", "Troll", 1, 5, 5, 50);
                     default:
-                        return (null);
+                        enemy = null;
             }
         }
+        return enemy;
     }
-
-
 }

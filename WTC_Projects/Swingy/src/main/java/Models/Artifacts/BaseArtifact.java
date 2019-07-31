@@ -1,13 +1,14 @@
 package Models.Artifacts;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
+import lombok.Getter;
+import lombok.Setter;
 
-@Getter
-@Setter
 public abstract class BaseArtifact implements Artifact {
+    @Setter
+    @Getter
     public int _effect;
+    @Setter
+    @Getter
     public String _type;
-
 
 }

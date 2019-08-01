@@ -15,5 +15,5 @@ public  abstract class BaseHero{
     public int _hitpoints;
     public int _xCord;
     public int _yCord;
-
+    public int _missionBuff;
 }

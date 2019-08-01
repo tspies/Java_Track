@@ -21,6 +21,7 @@ Models/Enemies/Villan.class
 Models/Enemies/DarkFairyEnemy.class
 Views/NewGameMenu.class
 Models/Artifacts/BoneSkullArtifact.class
+Controllers/Parsing/ClassParse.class
 Models/Artifacts/Artifact.class
 Models/Artifacts/GoblinPotionArtifact.class
 Models/Enemies/SkeletonEnemy.class

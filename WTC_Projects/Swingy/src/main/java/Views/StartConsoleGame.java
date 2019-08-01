@@ -1,10 +1,12 @@
 package Views;
 
 import Controllers.Console.BuildGame;
+import Controllers.Parsing.ClassParse;
+
 import java.util.Scanner;
 
 public class StartConsoleGame {
-    public static void startGame(){
+    public static void startGame()throws NullPointerException{
         Scanner scan = new Scanner(System.in);
 
         printSplash();
@@ -15,9 +17,27 @@ public class StartConsoleGame {
         if (mode.toLowerCase().equals("new")){
             System.out.println("\nPlease Enter A Name For Your Hero:\n");
             String username = scan.nextLine();
-            NewGameMenu.newGameMenu();
-            String heroClass = scan.nextLine();
-            BuildGame.newGame(username, heroClass);
+            System.out.println("Now that's a fierce name");
+            System.out.println("Choose your class:\n");
+
+            boolean validation = false;
+            String heroClassFinal = "class";
+            while (!validation) {
+                try {
+                    NewGameMenu.newGameMenu();
+                    String heroClass = scan.nextLine();
+                    if (ClassParse.checkClass(heroClass)){
+                        heroClassFinal =  heroClass;
+                        validation = true;
+                        break;
+                    }
+                    else
+                        System.out.println("Invalid class name,  please try again");
+                } catch (NullPointerException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            BuildGame.newGame(username, heroClassFinal);
         }
         else if ((mode.toLowerCase()).equals("load")){
 

@@ -6,8 +6,6 @@ public class NewGameMenu {
     public static String[] heros = {"Mage", "Rogue", "Warrior"};
     public static String[] attribute = {"Attack", "Defense", "HP"};
     public static void newGameMenu(){
-        System.out.println("Now that's a fierce name");
-        System.out.println("Choose your class:\n");
         for (int i=0; i < 3; i++){
             System.out.println(heros[i].toUpperCase() + ":");
             Integer[] stats = NewGameStats.classStats(heros[i]);

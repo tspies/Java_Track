@@ -41,7 +41,8 @@ public class BuildGame {
         }
     }
     private static void initPlayerPos(Hero player, int buff){
-        if ((buff % 2) > 0){
+        player.set_missionBuff(buff);
+        if ((buff % 2) == 0){
             player.set_xCord(buff/2 + 1);
             player.set_yCord(buff/2 - 1);
         }

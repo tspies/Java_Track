@@ -1,6 +1,8 @@
 package Views;
 
 import java.util.Scanner;
+import Models.Heros.*;
+
 public class CommentaryOutput {
     static Scanner scan = new Scanner(System.in);
 
@@ -17,10 +19,12 @@ public class CommentaryOutput {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
-
+    public static void mapInstructionsOut(){}
     public static void nextMoveOut(){
         System.out.println("Which direction do you want to move?");
     }
+    public static void winMissionOut(Hero player){ System.out.println("    Winner Winner Chicken Dinner!\n     You've Found Your Way Out!");
+                                        Controllers.Console.RunGame.missionWin(player);}
 
     public static void quitGame(){
         System.out.println("You have failed, goodbye");

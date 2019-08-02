@@ -34,6 +34,7 @@ public class BuildGame {
     public static void printMap(int buff, String[][] map){
         System.out.print("\n");
         for (int i = 0; i < buff; i++){
+            System.out.print("     ");
             for (int j = 0; j < buff; j++){
                 System.out.print(map[i][j]);
             }

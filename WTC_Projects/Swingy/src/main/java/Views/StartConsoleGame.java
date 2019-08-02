@@ -26,7 +26,7 @@ public class StartConsoleGame {
                 try {
                     NewGameMenu.newGameMenu();
                     String heroClass = scan.nextLine();
-                    if (ClassParse.checkClass(heroClass)){
+                    if (ClassParse.checkClass(heroClass.toLowerCase())){
                         heroClassFinal =  heroClass;
                         validation = true;
                         break;
@@ -49,17 +49,27 @@ public class StartConsoleGame {
     private  static void printSplash(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        System.out.println("    WELCOME TO:");
-        System.out.println("  ___        _               _      _             _");
-        System.out.println(" / __|_ __ _(_)_ _  __ _    /_\\  __| |_ _____ _ _| |_ _  _ _ _ ___ ___");
-        System.out.println(" \\__ \\ V  V / | ' \\/ _` |  / _ \\/ _` \\ V / -_) ' \\  _| || | '_/ -_|_-<");
-        System.out.println(" |___/\\_/\\_/|_|_||_\\__, | /_/ \\_\\__,_|\\_/\\___|_||_\\__|\\_,_|_| \\___/__/");
-        System.out.println("                    |___/");
-        System.out.println("             O                                           O");
-        System.out.println("       {o)xxx|===============-     *     -===============|xxx(o}");
-        System.out.println("             O                                           O");
+        System.out.println("        WELCOME TO:");
+        System.out.println("     ___        _               _      _             _");
+        System.out.println("    / __|_ __ _(_)_ _  __ _    /_\\  __| |_ _____ _ _| |_ _  _ _ _ ___ ___");
+        System.out.println("    \\__ \\ V  V / | ' \\/ _` |  / _ \\/ _` \\ V / -_) ' \\  _| || | '_/ -_|_-<");
+        System.out.println("    |___/\\_/\\_/|_|_||_\\__, | /_/ \\_\\__,_|\\_/\\___|_||_\\__|\\_,_|_| \\___/__/");
+        System.out.println("                       |___/");
+        System.out.println("                  O                                           O");
+        System.out.println("            {o)xxx|===============-     *     -===============|xxx(o}");
+        System.out.println("                  O                                           O");
 
     }
+    public static void printCompass(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+        System.out.println("          N");
+        System.out.println("          |");
+        System.out.println("     W -- 0 -- E");
+        System.out.println("          |");
+        System.out.println("          S");
+    }
+
 }
 //         ___        _               _      _             _
 //        / __|_ __ _(_)_ _  __ _    /_\  __| |_ _____ _ _| |_ _  _ _ _ ___ ___

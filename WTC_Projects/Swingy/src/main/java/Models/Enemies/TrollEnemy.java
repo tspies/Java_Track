@@ -1,7 +1,5 @@
 package Models.Enemies;
 
-import com.sun.xml.internal.rngom.parse.host.Base;
-
 public class TrollEnemy extends BaseEnemy {
     TrollEnemy(){
         set_name("Troll");

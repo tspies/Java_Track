@@ -23,8 +23,7 @@ public class CommentaryOutput {
     public static void nextMoveOut(){
         System.out.println("Which direction do you want to move?");
     }
-    public static void winMissionOut(Hero player){ System.out.println("    Winner Winner Chicken Dinner!\n     You've Found Your Way Out!");
-                                        Controllers.Console.RunGame.missionWin(player);}
+    public static void winMissionOut(Hero player){ System.out.println("    Winner Winner Chicken Dinner!\n     You've Found Your Way Out!");}
 
     public static void quitGame(){
         System.out.println("You have failed, goodbye");

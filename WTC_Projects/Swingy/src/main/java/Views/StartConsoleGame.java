@@ -6,44 +6,48 @@ import Controllers.Parsing.ClassParse;
 import java.util.Scanner;
 
 public class StartConsoleGame {
-    public static void startGame()throws NullPointerException{
+    public static void startGame()throws NullPointerException {
         Scanner scan = new Scanner(System.in);
+        boolean loadOrNew = false;
 
         printSplash();
-        System.out.println("    Would you like to create a NEW hero or resume an OLD game?");
-        System.out.println("    Type 'new' to start a new game or 'load' to resume an previous game\n");
-        String mode = scan.nextLine();
+        while (!loadOrNew){
+            System.out.println("    Would you like to create a NEW hero or resume an OLD game?");
+            System.out.println("    Type 'new' to start a new game or 'load' to resume an previous game\n");
+            String mode = scan.nextLine();
 
-        if (mode.toLowerCase().equals("new")){
-            System.out.println("\nPlease Enter A Name For Your Hero:\n");
-            String username = scan.nextLine();
-            System.out.println("Now that's a fierce name");
-            System.out.println("Choose your class:\n");
+            if (mode.toLowerCase().equals("new")) {
+                System.out.println("\nPlease Enter A Name For Your Hero:\n");
+                String username = scan.nextLine();
+                System.out.println("Now that's a fierce name");
+                System.out.println("Choose your class:\n");
+                loadOrNew = true;
 
-            boolean validation = false;
-            String heroClassFinal = "class";
-            while (!validation) {
-                try {
-                    NewGameMenu.newGameMenu();
-                    String heroClass = scan.nextLine();
-                    if (ClassParse.checkClass(heroClass.toLowerCase())){
-                        heroClassFinal =  heroClass;
-                        validation = true;
-                        break;
+                boolean validation = false;
+                String heroClassFinal = "class";
+                while (!validation) {
+                    try {
+                        NewGameMenu.newGameMenu();
+                        String heroClass = scan.nextLine();
+                        if (ClassParse.checkClass(heroClass.toLowerCase())) {
+                            heroClassFinal = heroClass;
+                            validation = true;
+                            break;
+                        }
+                        else
+                            System.out.println("Invalid class name,  please try again");
+                    } catch (NullPointerException e) {
+                        System.out.println(e.getMessage());
                     }
-                    else
-                        System.out.println("Invalid class name,  please try again");
-                } catch (NullPointerException e) {
-                    System.out.println(e.getMessage());
                 }
+                BuildGame.newGame(username, heroClassFinal);
             }
-            BuildGame.newGame(username, heroClassFinal);
-        }
-        else if ((mode.toLowerCase()).equals("load")){
+            else if ((mode.toLowerCase()).equals("load")) {
 
-        }
-        else{
-            System.out.println("Error in game input\n");
+            }
+            else {
+                System.out.println("Error in game input\n");
+            }
         }
     }
     private  static void printSplash(){
@@ -55,9 +59,9 @@ public class StartConsoleGame {
         System.out.println("    \\__ \\ V  V / | ' \\/ _` |  / _ \\/ _` \\ V / -_) ' \\  _| || | '_/ -_|_-<");
         System.out.println("    |___/\\_/\\_/|_|_||_\\__, | /_/ \\_\\__,_|\\_/\\___|_||_\\__|\\_,_|_| \\___/__/");
         System.out.println("                       |___/");
-        System.out.println("                  O                                           O");
-        System.out.println("            {o)xxx|===============-     *     -===============|xxx(o}");
-        System.out.println("                  O                                           O");
+        System.out.println("                O                                           O");
+        System.out.println("          {o)xxx|===============-     *     -===============|xxx(o}");
+        System.out.println("                O                                           O");
 
     }
     public static void printCompass(){

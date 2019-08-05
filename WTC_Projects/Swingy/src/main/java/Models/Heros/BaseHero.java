@@ -8,6 +8,9 @@ import lombok.Setter;
 public  abstract class BaseHero{
     public String _name;
     public String _class;
+    public String _armorArt;
+    public String _attackArt;
+    public String _defenseArt;
     public int _level;
     public int _experience;
     public int _attack;

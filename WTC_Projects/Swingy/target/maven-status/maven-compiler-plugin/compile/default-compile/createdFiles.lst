@@ -3,6 +3,7 @@ Models/Enemies/GoblinEnemy.class
 Models/Enemies/RockGiantEnemy.class
 Controllers/Console/RunGame.class
 Models/Artifacts/ArtifactGenerator.class
+Controllers/Console/SaveLoadHandler.class
 Models/Artifacts/BatWingsArtifact.class
 Models/Heros/Hero.class
 Controllers/Console/NewGameStats.class

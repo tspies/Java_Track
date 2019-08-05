@@ -1,0 +1,48 @@
+HERO LEVELING FORMULA:
+	level*1000+(level - 1)^2*450
+EG:
+	level 1 = 1000XP
+	level 2 = 2450XP
+	level 3 = 4800XP
+	level 4 = 8050XP
+	level 5 = 12200XP
+++++++++++++++++++++++++++++++++++++++++
+
+WRITING TO FILE:
+	
+	FileWriter fw = null;
+    BufferedWriter bw = null;
+    PrintWriter out = null;
+    try {
+        fw = new FileWriter("../../../../../savedgames.txt", true);
+        bw = new BufferedWriter(fw);
+        out = new PrintWriter(bw);
+        out.println("the text");
+        out.close();
+    } catch (IOException e) {
+        //exception handling left as an exercise for the reader
+    }
+    finally {
+        try {
+            if(out != null)
+                out.close();
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
+        }
+        try {
+            if(bw != null)
+                bw.close();
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
+        }
+        try {
+            if(fw != null)
+                fw.close();
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
+        }
+    }
+   ==============================
+
+FILE SAVE FORMAT:
+ "NAME" "LEVEL" "EXP" "ATK" "DEF" "HP" "ITEMS" (Maybe with their stats for easier loading) EG: "name, type, effect"

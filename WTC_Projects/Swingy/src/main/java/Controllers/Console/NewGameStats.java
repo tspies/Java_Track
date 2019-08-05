@@ -5,9 +5,9 @@ import Models.Heros.RogueHero;
 import Models.Heros.WarriorHero;
 
 public class NewGameStats {
-    static MageHero mage = new MageHero("name");
-    static RogueHero rogue = new RogueHero("name");
-    static WarriorHero warrior = new WarriorHero("name");
+    private static MageHero mage = new MageHero("name");
+    private static RogueHero rogue = new RogueHero("name");
+    private static WarriorHero warrior = new WarriorHero("name");
     public static Integer[] classStats(String classType){
         Integer[] stats = new Integer[4];
         if (classType.equals("Mage")){

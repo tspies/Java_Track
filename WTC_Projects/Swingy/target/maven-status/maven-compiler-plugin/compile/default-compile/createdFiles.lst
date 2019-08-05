@@ -13,8 +13,10 @@ Models/Enemies/BatEnemy.class
 Models/Heros/MageHero.class
 Views/StartConsoleGame.class
 Models/Artifacts/TrollClubArtifact.class
+Views/LoadGameMenu.class
 Models/Enemies/EnemyFactory.class
 Controllers/Main.class
+Controllers/Parsing/FileLoadSaveChecker.class
 Models/Heros/RogueHero.class
 Models/Heros/WarriorHero.class
 Models/Heros/BaseHero.class

@@ -1,3 +1,2 @@
-
-Tristyn,mage 1,0,40,10,80,
 tristyn,mage,1,0,40,10,80,
+Tristyn,mage,1,0,40,10,80,

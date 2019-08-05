@@ -43,7 +43,7 @@ public class StartConsoleGame {
                 BuildGame.newGame(username, heroClassFinal);
             }
             else if ((mode.toLowerCase()).equals("load")) {
-
+                BuildGame.loadGame();
             }
             else {
                 System.out.println("Error in game input\n");

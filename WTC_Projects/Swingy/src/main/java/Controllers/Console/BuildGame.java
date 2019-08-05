@@ -29,7 +29,7 @@ public class BuildGame {
     }
     public static  void loadGame(){
         boolean nextGame = true;
-        ArrayList<String> heroStats = SaveLoadHandler.loadHero();
+        String[] heroStats = SaveLoadHandler.loadHero();
 //        while (nextGame){
 //            System.out.println("Do you want to continue? ('yes' to continue or 'no' to exit)");
 //            String playAgain = scan.nextLine();

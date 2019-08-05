@@ -3,8 +3,6 @@ package Controllers.Console;
 import Models.Heros.Hero;
 
 import java.io.*;
-import java.util.ArrayList;
-
 
 public class SaveLoadHandler {
     public static void saveHero(Hero player){
@@ -56,19 +54,23 @@ public class SaveLoadHandler {
             }
         }
     }
-    public static ArrayList<String> loadHero(){
-        ArrayList<String> stats = null;
-        String line = null;
+    public static String[] loadHero(){
+        String line;
+        String[] elem = null;
+        Views.LoadGameMenu.loadGameMenu();
         try{
             BufferedReader reader= new BufferedReader(new FileReader("src/main/java/Controllers/savedgames.txt"));
-            while ((line = reader.readLine()) != null)
-                    System.out.println(line);
+            while ((line = reader.readLine()) != null) {
+                elem = line.split(",");
+                System.out.println("  " + elem[0] + " ==> " + elem[1]);
+
+            }
         }catch(FileNotFoundException ex)
         {
 
         }catch(IOException e){
 
         }
-        return stats;
+        return elem;
     }
 }

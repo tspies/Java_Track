@@ -43,6 +43,7 @@ public class StartConsoleGame {
                 BuildGame.newGame(username, heroClassFinal);
             }
             else if ((mode.toLowerCase()).equals("load")) {
+                loadOrNew = true;
                 BuildGame.loadGame();
             }
             else {

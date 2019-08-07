@@ -1,2 +1,3 @@
-tristyn,mage,1,0,40,10,80,
-Tristyn,mage,1,0,40,10,80,
+TestMage,mage,5,0,40,10,80,
+TestWarrior,warrior,5,0,20,30,120,
+TestRogue,Rogue,5,0,30,20,90,

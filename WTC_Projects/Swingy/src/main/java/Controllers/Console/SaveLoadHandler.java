@@ -3,6 +3,7 @@ package Controllers.Console;
 import Models.Heros.Hero;
 
 import java.io.*;
+import java.util.*;
 
 public class SaveLoadHandler {
     public static void saveHero(Hero player){
@@ -54,16 +55,44 @@ public class SaveLoadHandler {
             }
         }
     }
-    public static String[] loadHero(){
+    public static Hero loadHero(){
         String line;
-        String[] elem = null;
+        String[] elem;
+        Hero player = null;
+        ArrayList<String> savedGameNames = new ArrayList<>(100);
+        boolean validation = false;
+        Scanner scan = new Scanner(System.in);
         Views.LoadGameMenu.loadGameMenu();
         try{
             BufferedReader reader= new BufferedReader(new FileReader("src/main/java/Controllers/savedgames.txt"));
+            System.out.println(" |^^^^^^^^^^^^^^^|^^^^^^^^^^^^^^^|\n | NAME          | CLASS         |\n |_______________|_______________|");
             while ((line = reader.readLine()) != null) {
                 elem = line.split(",");
-                System.out.println("  " + elem[0] + " ==> " + elem[1]);
-
+                savedGameNames.add(elem[0]);
+                System.out.print(" | " + elem[0]);
+                for (int i = 0; i < (14 - (elem[0].length())); i++){
+                  System.out.print(" ");
+                }
+                System.out.print("| " + elem[1]);
+                for (int i = 0; i < (14 - (elem[1].length())); i++){
+                    System.out.print(" ");
+                }
+                System.out.print("|\n");
+            }
+            while (!validation){
+                System.out.println("Which Game Would You Like To Load?");
+                String nameToLoad = scan.nextLine();
+                if (savedGameNames.contains(nameToLoad))
+                    validation = true;
+                if (validation){
+                    player = getHeroStats(nameToLoad);
+                    if (player == null)
+                        System.out.println("NULL IN LOAD HERO");
+                    break;
+                    ///////Adding redirect for loaded game here.
+                }
+                else
+                    System.out.println("Invalid Input please try again");
             }
         }catch(FileNotFoundException ex)
         {
@@ -71,6 +100,28 @@ public class SaveLoadHandler {
         }catch(IOException e){
 
         }
-        return elem;
+        return player;
+    }
+
+    private static Hero getHeroStats(String name){
+        String line;
+        String elem[];
+        Hero player = null;
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("src/main/java/Controllers/savedgames.txt"));
+            while ((line = reader.readLine()) != null){
+                elem = line.split(",");
+                if (name.equals(elem[0])){
+                    player = Models.Heros.HeroFactory.generateLoadedHero(elem);
+                    break;
+                }
+            }
+        }catch(FileNotFoundException ex)
+        {
+
+        }catch(IOException e){
+
+        }
+        return player;
     }
 }

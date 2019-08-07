@@ -2,16 +2,14 @@ package Controllers.Console;
 
 import Models.Heros.Hero;
 import Models.Heros.HeroFactory;
-
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class BuildGame {
 
     public static void newGame(String name, String heroClass){
-        boolean nextGame = true;
-        Scanner scan = new Scanner(System.in);
-         Hero player = HeroFactory.generateHero(name, heroClass);
+         boolean nextGame = true;
+         Scanner scan = new Scanner(System.in);
+         Hero player = HeroFactory.generateNewHero(name, heroClass);
          String[][] map = generateMap(player);
          SaveLoadHandler.saveHero(player);
          RunGame.runGameLoop(player, map);
@@ -29,18 +27,24 @@ public class BuildGame {
     }
     public static  void loadGame(){
         boolean nextGame = true;
-        String[] heroStats = SaveLoadHandler.loadHero();
-//        while (nextGame){
-//            System.out.println("Do you want to continue? ('yes' to continue or 'no' to exit)");
-//            String playAgain = scan.nextLine();
-//            if(playAgain.toLowerCase().equals("yes")){
-//                map = generateMap(player);
-//                RunGame.runGameLoop(player, map);
-//            }
-//            else if (playAgain.toLowerCase().equals("no")){
-//                nextGame = false;
-//            }
-//        }
+        Scanner scan = new Scanner(System.in);
+        Hero player = SaveLoadHandler.loadHero();
+        if (player == null)
+            System.out.println("NULL NULL NULL");
+        String[][] map = generateMap(player);
+        RunGame.runGameLoop(player, map);
+        while (nextGame){
+            System.out.println("Do you want to continue? ('yes' to continue or 'no' to exit)");
+            String playAgain = scan.nextLine();
+            if(playAgain.toLowerCase().equals("yes")){
+                map = generateMap(player);
+                RunGame.runGameLoop(player, map);
+            }
+            else if (playAgain.toLowerCase().equals("no")){
+                System.out.println("Good Bye ^_^");
+                nextGame = false;
+            }
+        }
     }
     private static String[][] generateMap(Hero player){
         int buff = ((player.get_level()-1)*5+10-(player.get_level()%2));

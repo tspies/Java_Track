@@ -2,8 +2,7 @@ package Controllers.Console;
 
 import Models.Heros.Hero;
 import Views.CommentaryOutput;
-import Views.StartConsoleGame;
-
+import Models.Enemies.*;
 import java.util.Scanner;
 public class RunGame {
     public static void runGameLoop(Hero player, String[][] map) {
@@ -66,63 +65,80 @@ public class RunGame {
         }
     }
 
-    public static boolean moveHero(String dir, Hero player, String[][] map) {
+    private static boolean moveHero(String dir, Hero player, String[][] map) {
         boolean win = false;
-        // wrap in if statement for enemy chance spawn idea
-        if (dir == "N") {
-            if (player.get_xCord() - 1 > 0) {
-                player.set_xCord(player.get_xCord() - 1);
-                map[player.get_xCord()][player.get_yCord()] = "@";
-                map[player.get_xCord() + 1][player.get_yCord()] = "^";
-            } else if (player.get_xCord() - 1 == 0) {
-                win = true;
-                player.set_xCord(player.get_xCord() - 1);
-                map[player.get_xCord()][player.get_yCord()] = "@";
-                map[player.get_xCord() + 1][player.get_yCord()] = "^";
-                Views.CommentaryOutput.winMissionOut(player);
+        // Think about replacing this whole thing with a switch stament.
+        Villan enemy = EnemyFactory.generateRandomEnemy();
+        if (enemy == null) {
+            if (dir.equals("N")) {
+                if (player.get_xCord() - 1 > 0) {
+                    player.set_xCord(player.get_xCord() - 1);
+                    map[player.get_xCord()][player.get_yCord()] = "@";
+                    map[player.get_xCord() + 1][player.get_yCord()] = "^";
+                } else if (player.get_xCord() - 1 == 0) {
+                    win = true;
+                    player.set_xCord(player.get_xCord() - 1);
+                    map[player.get_xCord()][player.get_yCord()] = "@";
+                    map[player.get_xCord() + 1][player.get_yCord()] = "^";
+                    Views.CommentaryOutput.winMissionOut(player);
+                }
+            } else if (dir.equals("E")) {
+                if (player.get_yCord() + 2 < player.get_missionBuff()) {
+                    player.set_yCord(player.get_yCord() + 1);
+                    map[player.get_xCord()][player.get_yCord()] = "@";
+                    map[player.get_xCord()][player.get_yCord() - 1] = "^";
+                } else if (player.get_yCord() + 2 == player.get_missionBuff()) {
+                    win = true;
+                    player.set_yCord(player.get_yCord() + 1);
+                    map[player.get_xCord()][player.get_yCord()] = "@";
+                    map[player.get_xCord()][player.get_yCord() - 1] = "^";
+                    Views.CommentaryOutput.winMissionOut(player);
+                }
+            } else if (dir.equals("S")) {
+                if (player.get_xCord() + 2 < player.get_missionBuff()) {
+                    player.set_xCord(player.get_xCord() + 1);
+                    map[player.get_xCord()][player.get_yCord()] = "@";
+                    map[player.get_xCord() - 1][player.get_yCord()] = "^";
+                } else if (player.get_xCord() + 2 == player.get_missionBuff()) {
+                    win = true;
+                    player.set_xCord(player.get_xCord() + 1);
+                    map[player.get_xCord()][player.get_yCord()] = "@";
+                    map[player.get_xCord() - 1][player.get_yCord()] = "^";
+                    Views.CommentaryOutput.winMissionOut(player);
+                }
+            } else if (dir.equals("W")) {
+                if (player.get_yCord() - 1 > 0) {
+                    player.set_yCord(player.get_yCord() - 1);
+                    map[player.get_xCord()][player.get_yCord()] = "@";
+                    map[player.get_xCord()][player.get_yCord() + 1] = "^";
+                } else if (player.get_yCord() - 1 == 0) {
+                    win = true;
+                    player.set_yCord(player.get_yCord() - 1);
+                    map[player.get_xCord()][player.get_yCord()] = "@";
+                    map[player.get_xCord()][player.get_yCord() + 1] = "^";
+                    Views.CommentaryOutput.winMissionOut(player);
+                }
             }
-        } else if (dir == "E") {
-            if (player.get_yCord() + 2 < player.get_missionBuff()) {
-                player.set_yCord(player.get_yCord() + 1);
-                map[player.get_xCord()][player.get_yCord()] = "@";
-                map[player.get_xCord()][player.get_yCord() - 1] = "^";
-            } else if (player.get_yCord() + 2 == player.get_missionBuff()) {
-                win = true;
-                player.set_yCord(player.get_yCord() + 1);
-                map[player.get_xCord()][player.get_yCord()] = "@";
-                map[player.get_xCord()][player.get_yCord() - 1] = "^";
-                Views.CommentaryOutput.winMissionOut(player);
-            }
-        } else if (dir == "S") {
-            if (player.get_xCord() + 2 < player.get_missionBuff()) {
-                player.set_xCord(player.get_xCord() + 1);
-                map[player.get_xCord()][player.get_yCord()] = "@";
-                map[player.get_xCord() - 1][player.get_yCord()] = "^";
-            } else if (player.get_xCord() + 2 == player.get_missionBuff()) {
-                win = true;
-                player.set_xCord(player.get_xCord() + 1);
-                map[player.get_xCord()][player.get_yCord()] = "@";
-                map[player.get_xCord() - 1][player.get_yCord()] = "^";
-                Views.CommentaryOutput.winMissionOut(player);
-            }
-        } else if (dir == "W") {
-            if (player.get_yCord() - 1 > 0) {
-                player.set_yCord(player.get_yCord() - 1);
-                map[player.get_xCord()][player.get_yCord()] = "@";
-                map[player.get_xCord()][player.get_yCord() + 1] = "^";
-            } else if (player.get_yCord() - 1 == 0) {
-                win = true;
-                player.set_yCord(player.get_yCord() - 1);
-                map[player.get_xCord()][player.get_yCord()] = "@";
-                map[player.get_xCord()][player.get_yCord() + 1] = "^";
-                Views.CommentaryOutput.winMissionOut(player);
+            if (!win) {
+                Views.StartConsoleGame.printCompass();
+                BuildGame.printMap(player.get_missionBuff(), map);
             }
         }
-        if (!win) {
-            Views.StartConsoleGame.printCompass();
-            BuildGame.printMap(player.get_missionBuff(), map);
+        else{
+            boolean fightWin;
+            fightWin = startBattle(player, enemy);
+            if (fightWin){
+                System.out.println("You Wont The Battle");
+            }
+            else{
+                //Poop iin pants
+            }
         }
+
         return win;
+    }
+    private static boolean startBattle(Hero player, Villan enemy){
+        return true;
     }
     ////--------
 }

@@ -29,8 +29,6 @@ public class BuildGame {
         boolean nextGame = true;
         Scanner scan = new Scanner(System.in);
         Hero player = SaveLoadHandler.loadHero();
-        if (player == null)
-            System.out.println("NULL NULL NULL");
         String[][] map = generateMap(player);
         RunGame.runGameLoop(player, map);
         while (nextGame){
@@ -49,7 +47,6 @@ public class BuildGame {
     private static String[][] generateMap(Hero player){
         int buff = ((player.get_level()-1)*5+10-(player.get_level()%2));
         String[][] map = new String[buff][buff];
-        // Filling the map will "Walkable" terrain
         for (int i = 0; i < buff; i++){
             for (int j = 0; j < buff; j++){
                 map[i][j] = "^";

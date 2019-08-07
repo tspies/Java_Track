@@ -19,7 +19,6 @@ public class CommentaryOutput {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
-    public static void mapInstructionsOut(){}
     public static void nextMoveOut(){
         System.out.println("Which direction do you want to move?");
     }

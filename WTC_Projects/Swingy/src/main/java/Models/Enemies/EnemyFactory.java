@@ -3,10 +3,9 @@ package Models.Enemies;
 import java.util.Random;
 
 public class EnemyFactory {
-
-    private String[] enemyList = {"Bat", "DarkFairy", "Dragon", "Goblin", "Rock Giant", "Skeleton", "Troll"};
-    public Villan enemy = null;
-    public Villan generateRandomEnemy(){
+    private static String[] enemyList = {"Bat", "DarkFairy", "Dragon", "Goblin", "Rock Giant", "Skeleton", "Troll"};
+    public static Villan enemy = null;
+    public static Villan generateRandomEnemy(){
         Random spawnChance = new Random();
         if ((spawnChance.nextInt(10)) == 0|| (spawnChance.nextInt(10)) == 7){
             Random spawnEnemy = new Random();

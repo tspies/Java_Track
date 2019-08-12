@@ -46,3 +46,9 @@ WRITING TO FILE:
 
 FILE SAVE FORMAT:
  "NAME" "LEVEL" "EXP" "ATK" "DEF" "HP" "ITEMS" (Maybe with their stats for easier loading) EG: "name, type, effect"
+
+
+
+
+
+seems that my enemy generation is return null

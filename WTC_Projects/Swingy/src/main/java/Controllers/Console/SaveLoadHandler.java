@@ -86,8 +86,6 @@ public class SaveLoadHandler {
                     validation = true;
                 if (validation){
                     player = getHeroStats(nameToLoad);
-                    if (player == null)
-                        System.out.println("NULL IN LOAD HERO");
                     break;
                     ///////Adding redirect for loaded game here.
                 }

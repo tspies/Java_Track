@@ -1,5 +1,6 @@
 /goinfre/tspies/IdeaProjects/Swingy/src/main/java/Controllers/Console/NewGameStats.java
 /goinfre/tspies/IdeaProjects/Swingy/src/main/java/Models/Artifacts/TrollClubArtifact.java
+/goinfre/tspies/IdeaProjects/Swingy/src/main/java/Views/FightOutput.java
 /goinfre/tspies/IdeaProjects/Swingy/src/main/java/Models/Enemies/BaseEnemy.java
 /goinfre/tspies/IdeaProjects/Swingy/src/main/java/Models/Enemies/BatEnemy.java
 /goinfre/tspies/IdeaProjects/Swingy/src/main/java/Models/Enemies/DragonEnemy.java

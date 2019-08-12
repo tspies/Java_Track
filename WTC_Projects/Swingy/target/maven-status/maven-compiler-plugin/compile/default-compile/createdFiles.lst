@@ -32,6 +32,7 @@ Models/Heros/HeroFactory.class
 Models/Enemies/DragonEnemy.class
 Models/Artifacts/FairyDustArtifact.class
 Models/Artifacts/StoneShieldArtifact.class
+Views/FightOutput.class
 Models/Artifacts/BaseArtifact.class
 Views/CommentaryOutput.class
 Models/Enemies/TrollEnemy.class

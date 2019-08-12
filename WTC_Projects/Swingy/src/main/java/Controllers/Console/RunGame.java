@@ -3,6 +3,8 @@ package Controllers.Console;
 import Models.Heros.Hero;
 import Views.CommentaryOutput;
 import Models.Enemies.*;
+
+import java.util.Random;
 import java.util.Scanner;
 public class RunGame {
     public static void runGameLoop(Hero player, String[][] map) {
@@ -126,9 +128,10 @@ public class RunGame {
         }
         else{
             boolean fightWin;
+            encounderEnemy(enemy);
             fightWin = startBattle(player, enemy);
             if (fightWin){
-                System.out.println("You Wont The Battle");
+                System.out.println("You Won The Battle");
             }
             else{
                 //Poop iin pants
@@ -137,8 +140,18 @@ public class RunGame {
 
         return win;
     }
+    private static boolean encounderEnemy(Villan enemy){
+        Views.FightOutput.encounterOutput(enemy);
+//        boolean fight = false;
+//        while (!fight){
+//
+//        }
+//        Views.FightOutput.encounterOutput(enemy);
+        return true;
+    }
     private static boolean startBattle(Hero player, Villan enemy){
         return true;
     }
+
     ////--------
 }

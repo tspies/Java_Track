@@ -128,7 +128,7 @@ public class RunGame {
         }
         else{
             boolean fightWin;
-            encounderEnemy(enemy);
+            encounterEnemy(enemy);
             fightWin = startBattle(player, enemy);
             if (fightWin){
                 System.out.println("You Won The Battle");
@@ -140,14 +140,29 @@ public class RunGame {
 
         return win;
     }
-    private static boolean encounderEnemy(Villan enemy){
+    private static boolean encounterEnemy(Villan enemy){
         Views.FightOutput.encounterOutput(enemy);
-//        boolean fight = false;
-//        while (!fight){
-//
-//        }
-//        Views.FightOutput.encounterOutput(enemy);
-        return true;
+        boolean fight = true;
+        boolean validation = false;
+        Scanner scan = new Scanner(System.in);
+        while (!validation){
+            String fightOrFlight = scan.nextLine();
+            switch(fightOrFlight.toLowerCase()){
+                case "fight":{
+                    System.out.println("FIGHTING");
+                    validation = true;
+                    break;
+                }
+                case "run":{
+                    System.out.println("RUNNING");
+                    validation = true;
+                    break;
+                }
+                default:
+                    System.out.println("Invalid Input");
+            }
+        }
+        return fight;
     }
     private static boolean startBattle(Hero player, Villan enemy){
         return true;

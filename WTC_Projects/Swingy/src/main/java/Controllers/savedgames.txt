@@ -1,4 +1,4 @@
 TestMage,mage,5,0,40,10,80,
 TestWarrior,warrior,5,0,20,30,120,
 TestRogue,Rogue,5,0,30,20,90,
-blah,mage,1,0,40,10,80,
+q,mage,5,0,1000,1000,1000,

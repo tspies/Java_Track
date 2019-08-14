@@ -32,7 +32,6 @@ public class FightOutput {
                 printTroll();
                 break;
         }
-        System.out.println(enemy._name);
         System.out.println("\n    Will you 'fight' or 'run'?");
     }
     private static void printBat(){
@@ -175,8 +174,8 @@ public class FightOutput {
         System.out.flush();
         System.out.println("                            ______  ___ _____ _____ _      _____");
         System.out.println("                   /\\       | ___ \\/ _ \\_   _|_   _| |    |  ___|");
-        System.out.println("                   )( _____ | |_/ / /_\\ \\| |   | | | |    | |__  __________________  ");
-        System.out.println("        (_)///////(**)_____ | ___ \\  _  || |   | | | |    |  __| __________________/ ");
+        System.out.println("                   )( _____ | |_/ / /_\\ \\| |   | | | |    | |__  ___________________ ");
+        System.out.println("        (_)///////(**)_____ | ___ \\  _  || |   | | | |    |  __| ___________________/ ");
         System.out.println("                   )(       | |_/ / | | || |   | | | |____| |___ ");
         System.out.println("                   \\/       \\____/\\_| |_/\\_/   \\_/ \\_____/\\____/");
     }

@@ -16,7 +16,7 @@ public class RunGame {
             CommentaryOutput.introOut(player.get_name());
             noob = false;
         }
-
+        System.out.println("     North 'n', East 'e', South 's', West 'w'");
         while (!exit) {
             CommentaryOutput.nextMoveOut();
             String move = scan.nextLine();
@@ -69,7 +69,7 @@ public class RunGame {
 
     private static boolean moveHero(String dir, Hero player, String[][] map) {
         boolean win = false;
-        // Think about replacing this whole thing with a switch statment.
+        // Think about replacing this whole thing with a switch statement.
         Villan enemy = EnemyFactory.generateRandomEnemy();
         if (enemy == null) {
             if (dir.equals("N")) {
@@ -133,7 +133,12 @@ public class RunGame {
                 System.out.println("You Won The Battle");
             }
             else{
-                startBattle(player, enemy);
+                if(startBattle(player, enemy)){
+                   System.out.println("You have won the battle");
+                }
+                else{
+                    System.out.println("You have died");
+                }
             }
         }
 
@@ -145,7 +150,6 @@ public class RunGame {
         boolean validation = false;
         Scanner scan = new Scanner(System.in);
         Random runChance = new Random();
-        Hero player = null;
         while (!validation){
             String fightOrFlight = scan.nextLine();
             switch(fightOrFlight.toLowerCase()){
@@ -163,7 +167,7 @@ public class RunGame {
                         validation = true;
                     }
                     else{
-                        System.out.println("RUN FAILED< DUM DUM DUUUUUUM!");
+                        System.out.println("RUN FAILED, DUM DUM DUUUUUUM!!!");
                         System.out.println("Press any key to continue...");
                         scan.nextLine();
                         fight = true;
@@ -179,11 +183,57 @@ public class RunGame {
         return fight;
     }
     private static boolean startBattle(Hero player, Villan enemy){
-        Views.FightOutput.loadFightScreen(player, enemy);
+        Scanner scan = new Scanner(System.in);
+        boolean runFight = false;
+        boolean winFight = false;
+        while(!runFight){
+            Views.FightOutput.loadFightScreen(player, enemy);
+            System.out.println("                               Will you 'attack' or 'defend'?");
+            String line = scan.nextLine();
+            switch(line.toLowerCase()){
+                case "attack":
+                    winFight = runAttack(player, enemy, "hero");
+                    runAttack(player, enemy, "enemy");
+                    scan.nextLine();
+                    break;
+//                case "defend":
+//                    runDefend(player, enemy);
+//                    break;
+                    default:
+                        System.out.println("Invalid input");
+            }
+            if (winFight){
+                System.out.println("     You have defeated the enemy!!!");
+                runFight = true;
+            }
+            if (player.get_hitpoints() <= 0) {
+                runFight = true;
+                winFight = false;
+            }
 
-        System.out.println("Battle Has been started");
-
-        return true;
+        }
+        return winFight;
     }
+    private static boolean runAttack(Hero player, Villan enemy, String type){
+        int effect = 0;
+        if (type.equals("hero")){
+            effect = player.get_attack() - enemy.get_defense();
+            enemy.set_hitpoints(enemy.get_hitpoints() - effect);
+            System.out.println("     " + player.get_name() + " attacked the " + enemy.get_name() + " and did " + effect + " points of damage.");
+        }
+        else if (type.equals("enemy")){
+            effect = enemy.get_attack() - enemy.get_defense();
+            player.set_hitpoints(player.get_hitpoints() - effect);
+            System.out.println("     " + enemy.get_name() + " attacked the " + player.get_name() + " and did " + effect + " points of damage.");
+        }
+        System.out.println("     Press any key to continue ...");
+        if (enemy.get_hitpoints() <= 0)
+            return true;
+        else
+            return false;
+    }
+//    private static void runDefend(Hero player, Villan enemy){
+//        int effect = enemy.get_attack() - (player.get_defense() * 2);
+//    }
     ////--------
 }

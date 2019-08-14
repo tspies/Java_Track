@@ -13,25 +13,25 @@ public class EnemyFactory {
             String type = enemyList[index];
             switch(type){
                 case "Bat":
-                    enemy = new Villan("Bat Wings", "Bat", 1, 5, 5, 50);
+                    enemy = new Villan("Bat Wings", "Bat", 1, 30, 5, 50);
                     break;
                 case "DarkFairy":
-                    enemy = new Villan("Fairy Dust", "Dark Fairy", 1, 5, 5, 50);
+                    enemy = new Villan("Fairy Dust", "Dark Fairy", 1, 30, 5, 50);
                     break;
                 case "Dragon":
-                    enemy = new Villan("Dragon Slayer Sword", "Dragon", 1, 5, 5, 50);
+                    enemy = new Villan("Dragon Slayer Sword", "Dragon", 1, 30, 5, 50);
                     break;
                 case "Goblin":
-                    enemy = new Villan("Goblin Potion", "Cave Goblin", 1, 5, 5, 50);
+                    enemy = new Villan("Goblin Potion", "Cave Goblin", 1, 30, 5, 50);
                     break;
                 case "Rock Giant":
-                    enemy = new Villan("Stone Shield", "Rock Giant", 1, 5, 5, 50);
+                    enemy = new Villan("Stone Shield", "Rock Giant", 1, 30, 5, 50);
                     break;
                 case "Skeleton":
-                    enemy = new Villan("Bone Skull", "Skeleton", 1, 5, 5, 50);
+                    enemy = new Villan("Bone Skull", "Skeleton", 1, 30, 5, 50);
                     break;
                 case "Troll":
-                    enemy = new Villan("Troll's Club", "Troll", 1, 5, 5, 50);
+                    enemy = new Villan("Troll's Club", "Troll", 1, 30, 5, 50);
                     break;
             }
         }

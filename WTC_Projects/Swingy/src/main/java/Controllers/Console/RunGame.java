@@ -127,14 +127,13 @@ public class RunGame {
             }
         }
         else{
-            boolean fightWin;
-            encounterEnemy(enemy);
-            fightWin = startBattle(player, enemy);
-            if (fightWin){
+            boolean fightOrRun;
+            fightOrRun = encounterEnemy(enemy);
+            if (!fightOrRun){
                 System.out.println("You Won The Battle");
             }
             else{
-                //Poop iin pants
+                startBattle(player, enemy);
             }
         }
 
@@ -142,29 +141,43 @@ public class RunGame {
     }
     private static boolean encounterEnemy(Villan enemy){
         Views.FightOutput.encounterOutput(enemy);
-        boolean fight = true;
+        boolean fight = false;
         boolean validation = false;
         Scanner scan = new Scanner(System.in);
+        Random runChance = new Random();
         while (!validation){
             String fightOrFlight = scan.nextLine();
             switch(fightOrFlight.toLowerCase()){
                 case "fight":{
                     System.out.println("FIGHTING");
+                    fight = true;
                     validation = true;
                     break;
                 }
                 case "run":{
-                    System.out.println("RUNNING");
-                    validation = true;
+                    if (runChance.nextInt(2) == 1)
+                    {
+                        System.out.println("RUNNING");
+                        fight = false;
+                        validation = true;
+                    }
+                    else{
+                        System.out.println("RUN FAILED< DUM DUM DUUUUUUM!");
+                        fight = true;
+                        validation = true;
+                    }
                     break;
                 }
                 default:
+                    Views.FightOutput.encounterOutput(enemy);
                     System.out.println("Invalid Input");
             }
         }
         return fight;
     }
     private static boolean startBattle(Hero player, Villan enemy){
+
+        System.out.println("Battle Has been started");
         return true;
     }
 

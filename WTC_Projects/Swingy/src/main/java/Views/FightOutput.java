@@ -8,13 +8,13 @@ public class FightOutput {
             case "Bat":
                 printBat();
                 break;
-            case "DarkFairy":
+            case "Dark Fairy":
                 printDarkFairy();
                 break;
             case "Dragon":
                 printDragon();
                 break;
-            case "Goblin":
+            case "Cave Goblin":
                 printGoblin();
                 break;
             case "Rock Giant":
@@ -27,6 +27,7 @@ public class FightOutput {
                 printTroll();
                 break;
         }
+        System.out.println(enemy._name);
         System.out.println("\n    Will you 'fight' or 'run'?");
     }
     private static void printBat(){

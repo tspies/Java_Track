@@ -1,8 +1,16 @@
 package Views;
 
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class LoadGameMenu {
-    public static void loadGameMenu(){
+    public static void loadGameMenu(ArrayList<String> savedGameNames){
         printLoadSplash();
+        printLoadMenu(savedGameNames);
     }
 
     private static void printLoadSplash() {
@@ -16,6 +24,36 @@ public class LoadGameMenu {
         System.out.println(" \\____/ \\__,_| \\_/ \\___|\\__,_|  \\____/\\__,_|_| |_| |_|\\___||___/");
 
     }
+
+    private static void printLoadMenu(ArrayList<String> savedGameNames){
+        String line;
+        String[] elem;
+        ArrayList<String> savedGames = savedGameNames;
+        try{
+            BufferedReader reader= new BufferedReader(new FileReader("src/main/java/Controllers/savedgames.txt"));
+            System.out.println("\n             |^^^^^^^^^^^^^^^|^^^^^^^^^^^^^^^|\n             | NAME          | CLASS         |\n             |_______________|_______________|");
+            while ((line = reader.readLine()) != null) {
+                elem = line.split(",");
+                savedGames.add(elem[0]);
+                System.out.print("             | " + elem[0]);
+                for (int i = 0; i < (14 - (elem[0].length())); i++){
+                    System.out.print(" ");
+                }
+                System.out.print("| " + elem[1]);
+                for (int i = 0; i < (14 - (elem[1].length())); i++){
+                    System.out.print(" ");
+                }
+                System.out.print("|\n");
+            }
+            System.out.println("             |_______________|_______________|");
+        }catch(FileNotFoundException ex)
+        {
+
+        }catch(IOException e){
+
+        }
+    }
+
 }
 //
 //         _____                     _   _____

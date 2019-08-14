@@ -69,7 +69,7 @@ public class RunGame {
 
     private static boolean moveHero(String dir, Hero player, String[][] map) {
         boolean win = false;
-        // Think about replacing this whole thing with a switch stament.
+        // Think about replacing this whole thing with a switch statment.
         Villan enemy = EnemyFactory.generateRandomEnemy();
         if (enemy == null) {
             if (dir.equals("N")) {
@@ -145,6 +145,7 @@ public class RunGame {
         boolean validation = false;
         Scanner scan = new Scanner(System.in);
         Random runChance = new Random();
+        Hero player = null;
         while (!validation){
             String fightOrFlight = scan.nextLine();
             switch(fightOrFlight.toLowerCase()){
@@ -163,6 +164,8 @@ public class RunGame {
                     }
                     else{
                         System.out.println("RUN FAILED< DUM DUM DUUUUUUM!");
+                        System.out.println("Press any key to continue...");
+                        scan.nextLine();
                         fight = true;
                         validation = true;
                     }
@@ -176,10 +179,11 @@ public class RunGame {
         return fight;
     }
     private static boolean startBattle(Hero player, Villan enemy){
+        Views.FightOutput.loadFightScreen(player, enemy);
 
         System.out.println("Battle Has been started");
+
         return true;
     }
-
     ////--------
 }

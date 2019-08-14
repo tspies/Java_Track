@@ -1,8 +1,13 @@
 package Views;
 
 import Models.Enemies.*;
+import Models.Heros.Hero;
 
 public class FightOutput {
+    public static void loadFightScreen(Hero player, Villan enemy){
+        printFightSplash();
+        printFightStats(player, enemy);
+    }
     public static void encounterOutput(Villan enemy){
         switch(enemy.get_name()){
             case "Bat":
@@ -164,7 +169,62 @@ public class FightOutput {
         System.out.println("      __\\,,\\ /,,/__");
         System.out.println("     (______Y______)");
     }
+
+    private static void printFightSplash(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+        System.out.println("                            ______  ___ _____ _____ _      _____");
+        System.out.println("                   /\\       | ___ \\/ _ \\_   _|_   _| |    |  ___|");
+        System.out.println("                   )( _____ | |_/ / /_\\ \\| |   | | | |    | |__  __________________  ");
+        System.out.println("        (_)///////(**)_____ | ___ \\  _  || |   | | | |    |  __| __________________/ ");
+        System.out.println("                   )(       | |_/ / | | || |   | | | |____| |___ ");
+        System.out.println("                   \\/       \\____/\\_| |_/\\_/   \\_/ \\_____/\\____/");
+    }
+
+    private static void printFightStats( Hero player, Villan enemy){
+        System.out.println("                          _______________________________________");
+        // Name Line
+        System.out.print("                          | " + player.get_name());
+        for (int i = player.get_name().length(); i < 17; i++)
+            System.out.print(" ");
+        System.out.print("| " + enemy.get_name());
+        for (int i = enemy.get_name().length(); i < 17; i++)
+            System.out.print(" ");
+        System.out.print("|\n");
+        System.out.println("                          |__________________|__________________|");
+        // Attack Line
+        printStatLine("ATK", player.get_attack(), enemy.get_defense());
+        // Defense Line
+        printStatLine("DEF", player.get_defense(), enemy.get_defense());
+        // Hitpoints
+        printStatLine("HP ", player.get_hitpoints(), enemy.get_hitpoints());
+        System.out.println("                          |__________________|__________________|");
+    }
+    private static void printStatLine(String statType, int playerStat, int enemyStat){
+        System.out.print("                          | " + statType + ": " + playerStat);
+        for (int i = String.valueOf(playerStat).length(); i < 12; i++)
+            System.out.print(" ");
+        System.out.print("| " + statType + ": " + enemyStat);
+        for (int i = String.valueOf(enemyStat).length(); i < 12; i++)
+            System.out.print(" ");
+        System.out.print("|\n");
+    }
 }
+
+//                            ______  ___ _____ _____ _      _____
+//                   /\       | ___ \/ _ \_   _|_   _| |    |  ___|
+//         _         )( _____ | |_/ / /_\ \| |   | | | |    | |__  __________________
+//        (_)///////(**)_____ | ___ \  _  || |   | | | |    |  __| _________________ .>
+//                   )(       | |_/ / | | || |   | | | |____| |___
+//                   \/       \____/\_| |_/\_/   \_/ \_____/\____/
+//
+//
+
+//                              /\
+//                    _         )( _____ __________________
+//                   (_)///////(**)_____ _________________.>
+//                              )(
+//                              \/
 
 
 //             =/\                 /\=

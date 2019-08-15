@@ -56,6 +56,55 @@ public class SaveLoadHandler {
         }
     }
 
+    public static void rewriteSavedGame(Hero player){
+        String line;
+        String elem[];
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        PrintWriter gameFile = null;
+
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("src/main/java/Controllers/savedgames.txt"));
+            fw = new FileWriter("src/main/java/Controllers/savedgames.txt", false);
+            bw = new BufferedWriter(fw);
+            gameFile = new PrintWriter(bw);
+            while ((line = reader.readLine()) != null){
+                elem = line.split(",");
+                if (player.get_name().equals(elem[0])){
+                    gameFile.println(player.get_name()+","+player.get_level()+","+player.get_experience()+","+player.get_attack()+","+player.get_defense()+","+player.get_hitpoints()+",");
+                }
+                else{
+                    gameFile.println(line);
+                }
+            }
+
+        }catch(FileNotFoundException ex){
+
+        }catch(IOException ex){
+
+        }finally {
+            try {
+                if(gameFile != null)
+                    gameFile.close();
+                else
+                    throw  new IOException();
+            } catch (IOException e) {
+                //exception handling left as an exercise for the reader
+            }
+            try {
+                if(bw != null)
+                    bw.close();
+            } catch (IOException e) {
+                //exception handling left as an exercise for the reader
+            }
+            try {
+                if(fw != null)
+                    fw.close();
+            } catch (IOException e) {
+                //exception handling left as an exercise for the reader
+            }
+        }
+    }
     public static Hero loadHero(){
         Hero player = null;
         ArrayList<String> savedGameNames = new ArrayList<>(100);

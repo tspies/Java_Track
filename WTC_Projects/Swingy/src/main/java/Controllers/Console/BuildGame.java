@@ -1,5 +1,6 @@
 package Controllers.Console;
 
+import Models.Enemies.Villan;
 import Models.Heros.Hero;
 import Models.Heros.HeroFactory;
 import java.util.Scanner;
@@ -86,6 +87,15 @@ public class BuildGame {
             player.set_yCord(buff / 2);
         }
     }
-
+    public static int villanWinExperience(Hero player, Villan enemy){
+        int exp = 500 * (enemy.get_level());
+        player.set_experience(player.get_experience() + exp);
+        return exp;
+    }
+    public static int missionWinExperience(Hero player){
+        int exp = 100 * player.get_missionBuff();
+        player.set_experience(player.get_experience() + exp);
+        return exp;
+    }
     //----------
 }

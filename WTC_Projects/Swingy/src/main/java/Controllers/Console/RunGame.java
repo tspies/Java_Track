@@ -70,7 +70,7 @@ public class RunGame {
     private static boolean moveHero(String dir, Hero player, String[][] map) {
         boolean win = false;
         // Think about replacing this whole thing with a switch statement.
-        Villan enemy = EnemyFactory.generateRandomEnemy();
+        Villan enemy = EnemyFactory.generateRandomEnemy(player);
         if (enemy == null) {
             if (dir.equals("N")) {
                 if (player.get_xCord() - 1 > 0) {
@@ -128,13 +128,13 @@ public class RunGame {
         }
         else{
             boolean fightOrRun;
-            fightOrRun = encounterEnemy(enemy);
+            fightOrRun = encounterEnemy(player, enemy);
             if (!fightOrRun){
                 System.out.println("You Won The Battle");
             }
             else{
                 if(startBattle(player, enemy)){
-                   System.out.println("You have won the battle");
+                    System.out.println("You have won the battle");
                 }
                 else{
                     System.out.println("You have died");
@@ -144,7 +144,7 @@ public class RunGame {
 
         return win;
     }
-    private static boolean encounterEnemy(Villan enemy){
+    private static boolean encounterEnemy(Hero player, Villan enemy){
         Views.FightOutput.encounterOutput(enemy);
         boolean fight = false;
         boolean validation = false;
@@ -193,18 +193,29 @@ public class RunGame {
             switch(line.toLowerCase()){
                 case "attack":
                     winFight = runAttack(player, enemy, "hero");
-                    runAttack(player, enemy, "enemy");
+                    if (!winFight){
+                        runAttack(player, enemy, "enemy");
+                    }
                     scan.nextLine();
                     break;
 //                case "defend":
 //                    runDefend(player, enemy);
 //                    break;
-                    default:
+                case "[healme]":
+                    player.set_hitpoints(player.get_hitpoints() + 1000);
+                    break;
+                case "[powerup]":
+                    player.set_attack(player.get_attack() + 50);
+                    break;
+                default:
                         System.out.println("Invalid input");
             }
             if (winFight){
                 System.out.println("     You have defeated the enemy!!!");
                 runFight = true;
+                System.out.println("     You have gained: " + BuildGame.villanWinExperience(player, enemy) + "XP!");
+                System.out.println("EXP --> " + player.get_experience());
+                SaveLoadHandler.rewriteSavedGame(player);
             }
             if (player.get_hitpoints() <= 0) {
                 runFight = true;
@@ -218,13 +229,25 @@ public class RunGame {
         int effect = 0;
         if (type.equals("hero")){
             effect = player.get_attack() - enemy.get_defense();
+            if (effect < 0)
+                effect = 0;
             enemy.set_hitpoints(enemy.get_hitpoints() - effect);
-            System.out.println("     " + player.get_name() + " attacked the " + enemy.get_name() + " and did " + effect + " points of damage.");
+            if (effect == 1)
+                System.out.println("     " + player.get_name() + " attacked the " + enemy.get_name() + " and did " + effect + " point of damage.");
+            else
+                System.out.println("     " + player.get_name() + " attacked the " + enemy.get_name() + " and did " + effect + " points of damage.");
+
         }
         else if (type.equals("enemy")){
-            effect = enemy.get_attack() - enemy.get_defense();
+            effect = enemy.get_attack() - player.get_defense();
+            if (effect < 0)
+                effect = 0;
             player.set_hitpoints(player.get_hitpoints() - effect);
-            System.out.println("     " + enemy.get_name() + " attacked the " + player.get_name() + " and did " + effect + " points of damage.");
+            if (effect == 1)
+                System.out.println("     " + enemy.get_name() + " attacked " + player.get_name() + " and did " + effect + " point of damage.");
+            else
+                System.out.println("     " + enemy.get_name() + " attacked " + player.get_name() + " and did " + effect + " points of damage.");
+
         }
         System.out.println("     Press any key to continue ...");
         if (enemy.get_hitpoints() <= 0)

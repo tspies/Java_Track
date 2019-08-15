@@ -10,7 +10,7 @@ public abstract class BaseEnemy {
     public String _name;
     public String _class;
     public int _level;
-    public int _experience;
+    public double _experience;
     public int _attack;
     public int _defense;
     public int _hitpoints;

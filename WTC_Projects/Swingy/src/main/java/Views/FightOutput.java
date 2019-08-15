@@ -174,7 +174,7 @@ public class FightOutput {
         System.out.flush();
         System.out.println("                            ______  ___ _____ _____ _      _____");
         System.out.println("                   /\\       | ___ \\/ _ \\_   _|_   _| |    |  ___|");
-        System.out.println("                   )( _____ | |_/ / /_\\ \\| |   | | | |    | |__  ___________________ ");
+        System.out.println("                   )( _____ | |_/ / /_\\ \\| |   | | | |    | |__  ____________________ ");
         System.out.println("        (_)///////(**)_____ | ___ \\  _  || |   | | | |    |  __| ___________________/ ");
         System.out.println("                   )(       | |_/ / | | || |   | | | |____| |___ ");
         System.out.println("                   \\/       \\____/\\_| |_/\\_/   \\_/ \\_____/\\____/");
@@ -192,7 +192,7 @@ public class FightOutput {
         System.out.print("|\n");
         System.out.println("                          |__________________|__________________|");
         // Attack Line
-        printStatLine("ATK", player.get_attack(), enemy.get_defense());
+        printStatLine("ATK", player.get_attack(), enemy.get_attack());
         // Defense Line
         printStatLine("DEF", player.get_defense(), enemy.get_defense());
         // Hitpoints
@@ -212,8 +212,8 @@ public class FightOutput {
 
 //                            ______  ___ _____ _____ _      _____
 //                   /\       | ___ \/ _ \_   _|_   _| |    |  ___|
-//         _         )( _____ | |_/ / /_\ \| |   | | | |    | |__  __________________
-//        (_)///////(**)_____ | ___ \  _  || |   | | | |    |  __| _________________ .>
+//         _         )( _____ | |_/ / /_\ \| |   | | | |    | |__  ___________________
+//        (_)///////(**)_____ | ___ \  _  || |   | | | |    |  __| _________________/
 //                   )(       | |_/ / | | || |   | | | |____| |___
 //                   \/       \____/\_| |_/\_/   \_/ \_____/\____/
 //

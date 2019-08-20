@@ -215,7 +215,7 @@ public class RunGame {
                 runFight = true;
                 System.out.println("     You have gained: " + BuildGame.villanWinExperience(player, enemy) + "XP!");
                 System.out.println("EXP --> " + player.get_experience());
-                SaveLoadHandler.rewriteSavedGame(player);
+                SaveLoadHandler.replaceFile(player);
             }
             if (player.get_hitpoints() <= 0) {
                 runFight = true;

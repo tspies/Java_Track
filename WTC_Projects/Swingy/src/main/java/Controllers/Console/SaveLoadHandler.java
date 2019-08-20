@@ -27,7 +27,7 @@ public class SaveLoadHandler {
                 gameFile.print(player.get_attackArt() + ",");
             if (player.get_armorArt() != "empty")
                 gameFile.print(player.get_attackArt() + ",");
-            gameFile.print("\n");
+            gameFile.print("~\n");
             gameFile.close();
         } catch (IOException e) {
             //exception handling left as an exercise for the reader
@@ -55,56 +55,37 @@ public class SaveLoadHandler {
             }
         }
     }
-
-    public static void rewriteSavedGame(Hero player){
-        String line;
-        String elem[];
-        FileWriter fw = null;
-        BufferedWriter bw = null;
-        PrintWriter gameFile = null;
-
+    public static void  replaceFile(Hero player){
         try{
-            BufferedReader reader = new BufferedReader(new FileReader("src/main/java/Controllers/savedgames.txt"));
-            fw = new FileWriter("src/main/java/Controllers/savedgames.txt", false);
-            bw = new BufferedWriter(fw);
-            gameFile = new PrintWriter(bw);
-            while ((line = reader.readLine()) != null){
-                elem = line.split(",");
-                if (player.get_name().equals(elem[0])){
-                    gameFile.println(player.get_name()+","+player.get_level()+","+player.get_experience()+","+player.get_attack()+","+player.get_defense()+","+player.get_hitpoints()+",");
+            BufferedReader file = new BufferedReader(new FileReader("src/main/java/Controllers/savedgames.txt"));
+            StringBuffer inputBuffer = new StringBuffer();
+            String line;
+
+            while((line = file.readLine()) != null){
+                inputBuffer.append(line);
+                inputBuffer.append("\n");
+            }
+            file.close();
+            String inputStr = inputBuffer.toString();
+            String[] array = inputStr.split("~\n");
+            for (int i = 0; i < array.length; i++){
+                String[] arrLine = array[i].split(",");
+                if (arrLine[0].equals(player.get_name())){
+                    System.out.println("[ " + array[i] + " ]");
+                    array[i] = formatSaveLine(player);
+                    System.out.println("[ " + array[i] + " ]");
                 }
-                else{
-                    gameFile.println(line);
-                }
             }
+        }catch(Exception e){
 
-        }catch(FileNotFoundException ex){
-
-        }catch(IOException ex){
-
-        }finally {
-            try {
-                if(gameFile != null)
-                    gameFile.close();
-                else
-                    throw  new IOException();
-            } catch (IOException e) {
-                //exception handling left as an exercise for the reader
-            }
-            try {
-                if(bw != null)
-                    bw.close();
-            } catch (IOException e) {
-                //exception handling left as an exercise for the reader
-            }
-            try {
-                if(fw != null)
-                    fw.close();
-            } catch (IOException e) {
-                //exception handling left as an exercise for the reader
-            }
         }
     }
+    private static String formatSaveLine(Hero player){
+        String formatted;
+        formatted = player.get_name() + "," + player.get_class() + "," + player.get_level() + "," + player.get_experience() + "," + player.get_attack() + "," + player.get_defense() + "," + player.get_hitpoints() + ",";
+        return formatted;
+    }
+
     public static Hero loadHero(){
         Hero player = null;
         ArrayList<String> savedGameNames = new ArrayList<>(100);

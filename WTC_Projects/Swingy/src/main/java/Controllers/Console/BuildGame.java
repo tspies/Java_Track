@@ -50,17 +50,17 @@ public class BuildGame {
         String[][] map = new String[buff][buff];
         for (int i = 0; i < buff; i++){
             for (int j = 0; j < buff; j++){
-                map[i][j] = "^";
+                map[i][j] = "\033[32;1m"+"^"+"\033[32;0m";
             }
         }
         // Filling in borders for win condition
         for (int i = 0; i < buff; i++){
-            map[0][i] = "#";
-            map[buff - 1][i] = "#";
+            map[0][i] = "\033[34;1m"+"#"+"\033[34;0m";
+            map[buff - 1][i] = "\033[34;1m"+"#"+"\033[34;0m";
         }
         for (int j = 0; j < buff; j++){
-            map[j][0] = "#";
-            map[j][buff - 1] = "#";
+            map[j][0] = "\033[34;1m"+"#"+"\033[34;0m";
+            map[j][buff - 1] = "\033[34;1m"+"#"+"\033[34;0m";
         }
         initPlayerPos(player, buff);
         return map;
@@ -88,12 +88,12 @@ public class BuildGame {
         }
     }
     public static int villanWinExperience(Hero player, Villan enemy){
-        int exp = 500 * (enemy.get_level());
+        int exp = 175 * (enemy.get_level());
         player.set_experience(player.get_experience() + exp);
         return exp;
     }
     public static int missionWinExperience(Hero player){
-        int exp = 100 * player.get_missionBuff();
+        int exp = 15 * player.get_missionBuff();
         player.set_experience(player.get_experience() + exp);
         return exp;
     }

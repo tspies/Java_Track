@@ -54,15 +54,15 @@ public class StartConsoleGame {
     private  static void printSplash(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        System.out.println("        WELCOME TO:");
-        System.out.println("     ___        _               _      _             _");
+        System.out.println("\033[33;1m"+"        WELCOME TO:"+"\033[33;0m");
+        System.out.println("\033[31;1m"+"     ___        _               _      _             _");
         System.out.println("    / __|_ __ _(_)_ _  __ _    /_\\  __| |_ _____ _ _| |_ _  _ _ _ ___ ___");
         System.out.println("    \\__ \\ V  V / | ' \\/ _` |  / _ \\/ _` \\ V / -_) ' \\  _| || | '_/ -_|_-<");
         System.out.println("    |___/\\_/\\_/|_|_||_\\__, | /_/ \\_\\__,_|\\_/\\___|_||_\\__|\\_,_|_| \\___/__/");
-        System.out.println("                       |___/");
-        System.out.println("                O                                           O");
+        System.out.println("                       |___/"+"\033[31;0m");
+        System.out.println("\033[31;1m"+"                O                                           O");
         System.out.println("          {o)xxx|===============-     *     -===============|xxx(o}");
-        System.out.println("                O                                           O");
+        System.out.println("                O                                           O"+"\033[31;0m");
 
     }
     public static void printCompass(){

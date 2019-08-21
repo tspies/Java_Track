@@ -59,46 +59,30 @@ public class SaveLoadHandler {
         try{
             BufferedReader file = new BufferedReader(new FileReader("src/main/java/Controllers/savedgames.txt"));
             StringBuffer inputBuffer = new StringBuffer();
-//            FileOutputStream fileOut = new FileOutputStream("src/main/java/Controllers/savedgames.txt");
             String line;
-
+            String heroOldStats = null;
+            String[] array;
             while((line = file.readLine()) != null){
                 inputBuffer.append(line);
                 inputBuffer.append("\n");
+                array = line.split(",");
+                if (array[0].equals(player.get_name())){
+                    heroOldStats = line;
+                }
             }
             file.close();
             String inputStr = inputBuffer.toString();
-            String[] array = inputStr.split("~\n");
-            for (int i = 0; i < array.length; i++){
-                String[] arrLine = array[i].split(",");
-                if (arrLine[0].equals(player.get_name())){
-                    array[i] = formatSaveLine(player);
-                }
-                else
-                    array[i] = array[i];
-            }
-            for (int i = 0; i < array.length; i++)
-                System.out.println(array[i]);
-//            for (int i = 0; i < array.length; i++){
-////                array[i] = array[i];
-//                System.out.println(array[i]);
-//            }
-//            for (int i = 0; i < array.length; i++){
-//                System.out.println("{ " + array[i] + " }");
-//                inputBuffer.append(array[i]);
-//                inputBuffer.append("\n");
-//            }
-//            System.out.println("++" +inputStr + "++");
-//            inputStr = inputBuffer.toString();
-//            fileOut.write(inputStr.getBytes());
-//            fileOut.close();
+            inputStr = inputStr.replace(heroOldStats, formatSaveLine(player));
+            FileOutputStream fileOut = new FileOutputStream("src/main/java/Controllers/savedgames.txt");
+            fileOut.write(inputStr.getBytes());
+            fileOut.close();
         }catch(Exception e){
 
         }
     }
     private static String formatSaveLine(Hero player){
         String formatted;
-        formatted = player.get_name() + "," + player.get_class() + "," + player.get_level() + "," + player.get_experience() + "," + player.get_attack() + "," + player.get_defense() + "," + player.get_hitpoints() + ",";
+        formatted = player.get_name() + "," + player.get_class() + "," + player.get_level() + "," + player.get_experience() + "," + player.get_attack() + "," + player.get_defense() + "," + player.get_hitpoints() + ",~./r    ";
         return formatted;
     }
 

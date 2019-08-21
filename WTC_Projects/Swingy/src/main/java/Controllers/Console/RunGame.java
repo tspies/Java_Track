@@ -62,63 +62,63 @@ public class RunGame {
             }
         }
         if (winMission) {
-            //Leveling up and experience goes here.
-            System.out.println("Mission was won");
+            System.out.println("     You have gained: " + BuildGame.missionWinExperience(player) + "XP!");
+            levelUpCheck(player);
+            SaveLoadHandler.replaceFile(player);
         }
     }
 
     private static boolean moveHero(String dir, Hero player, String[][] map) {
         boolean win = false;
-        // Think about replacing this whole thing with a switch statement.
         Villan enemy = EnemyFactory.generateRandomEnemy(player);
         if (enemy == null) {
             if (dir.equals("N")) {
                 if (player.get_xCord() - 1 > 0) {
                     player.set_xCord(player.get_xCord() - 1);
-                    map[player.get_xCord()][player.get_yCord()] = "@";
-                    map[player.get_xCord() + 1][player.get_yCord()] = "^";
+                    map[player.get_xCord()][player.get_yCord()] = "\033[31;1m"+"@"+"\033[31;1m";
+                    map[player.get_xCord() + 1][player.get_yCord()] = "\033[32;1m"+"^"+"\033[32;1m";
                 } else if (player.get_xCord() - 1 == 0) {
                     win = true;
                     player.set_xCord(player.get_xCord() - 1);
-                    map[player.get_xCord()][player.get_yCord()] = "@";
-                    map[player.get_xCord() + 1][player.get_yCord()] = "^";
-                    Views.CommentaryOutput.winMissionOut(player);
+                    map[player.get_xCord()][player.get_yCord()] = "\033[31;1m"+"@"+"\033[31;1m";
+                    map[player.get_xCord() + 1][player.get_yCord()] = "\033[32;1m"+"^"+"\033[32;1m";
+                    Views.CommentaryOutput.winMissionOut();
                 }
             } else if (dir.equals("E")) {
                 if (player.get_yCord() + 2 < player.get_missionBuff()) {
                     player.set_yCord(player.get_yCord() + 1);
-                    map[player.get_xCord()][player.get_yCord()] = "@";
-                    map[player.get_xCord()][player.get_yCord() - 1] = "^";
+                    map[player.get_xCord()][player.get_yCord()] = "\033[31;1m"+"@"+"\033[31;1m";
+                    map[player.get_xCord()][player.get_yCord() - 1] = "\033[32;1m"+"^"+"\033[32;1m";
                 } else if (player.get_yCord() + 2 == player.get_missionBuff()) {
                     win = true;
                     player.set_yCord(player.get_yCord() + 1);
-                    map[player.get_xCord()][player.get_yCord()] = "@";
-                    map[player.get_xCord()][player.get_yCord() - 1] = "^";
-                    Views.CommentaryOutput.winMissionOut(player);
+                    map[player.get_xCord()][player.get_yCord()] = "\033[31;1m"+"@"+"\033[31;1m";
+                    map[player.get_xCord()][player.get_yCord() - 1] = "\033[32;1m"+"^"+"\033[32;1m";
+                    Views.CommentaryOutput.winMissionOut();
                 }
             } else if (dir.equals("S")) {
                 if (player.get_xCord() + 2 < player.get_missionBuff()) {
                     player.set_xCord(player.get_xCord() + 1);
-                    map[player.get_xCord()][player.get_yCord()] = "@";
-                    map[player.get_xCord() - 1][player.get_yCord()] = "^";
+                    map[player.get_xCord()][player.get_yCord()] = "\033[31;1m"+"@"+"\033[31;1m";
+                    map[player.get_xCord() - 1][player.get_yCord()] = "\033[32;1m"+"^"+"\033[32;1m";
                 } else if (player.get_xCord() + 2 == player.get_missionBuff()) {
                     win = true;
                     player.set_xCord(player.get_xCord() + 1);
-                    map[player.get_xCord()][player.get_yCord()] = "@";
-                    map[player.get_xCord() - 1][player.get_yCord()] = "^";
-                    Views.CommentaryOutput.winMissionOut(player);
+                    map[player.get_xCord()][player.get_yCord()] = "\033[31;1m"+"@"+"\033[31;1m";
+                    map[player.get_xCord() - 1][player.get_yCord()] = "\033[32;1m"+"^"+"\033[32;1m";
+                    Views.CommentaryOutput.winMissionOut();
                 }
             } else if (dir.equals("W")) {
                 if (player.get_yCord() - 1 > 0) {
                     player.set_yCord(player.get_yCord() - 1);
-                    map[player.get_xCord()][player.get_yCord()] = "@";
-                    map[player.get_xCord()][player.get_yCord() + 1] = "^";
+                    map[player.get_xCord()][player.get_yCord()] = "\033[31;1m"+"@"+"\033[31;1m";
+                    map[player.get_xCord()][player.get_yCord() + 1] = "\033[32;1m"+"^"+"\033[32;1m";
                 } else if (player.get_yCord() - 1 == 0) {
                     win = true;
                     player.set_yCord(player.get_yCord() - 1);
-                    map[player.get_xCord()][player.get_yCord()] = "@";
-                    map[player.get_xCord()][player.get_yCord() + 1] = "^";
-                    Views.CommentaryOutput.winMissionOut(player);
+                    map[player.get_xCord()][player.get_yCord()] = "\033[31;1m"+"@"+"\033[31;1m";
+                    map[player.get_xCord()][player.get_yCord() + 1] = "\033[32;1m"+"^"+"\033[32;1m";
+                    Views.CommentaryOutput.winMissionOut();
                 }
             }
             if (!win) {
@@ -130,14 +130,14 @@ public class RunGame {
             boolean fightOrRun;
             fightOrRun = encounterEnemy(player, enemy);
             if (!fightOrRun){
-                System.out.println("You Won The Battle");
+                System.out.println("     You Won The Battle");
             }
             else{
                 if(startBattle(player, enemy)){
-                    System.out.println("You have won the battle");
+                    System.out.println("     You have won the battle");
                 }
                 else{
-                    System.out.println("You have died");
+                    System.out.println("     You have died");
                 }
             }
         }
@@ -188,9 +188,10 @@ public class RunGame {
         boolean winFight = false;
         while(!runFight){
             Views.FightOutput.loadFightScreen(player, enemy);
-            System.out.println("                               Will you 'attack' or 'defend'?");
+            System.out.println("                                       Type 'a' attack");
             String line = scan.nextLine();
             switch(line.toLowerCase()){
+                case "a":
                 case "attack":
                     winFight = runAttack(player, enemy, "hero");
                     if (!winFight){
@@ -205,7 +206,7 @@ public class RunGame {
                     player.set_hitpoints(player.get_hitpoints() + 1000);
                     break;
                 case "[powerup]":
-                    player.set_attack(player.get_attack() + 50);
+                    player.set_attack(player.get_attack() + 100);
                     break;
                 default:
                         System.out.println("Invalid input");
@@ -214,7 +215,7 @@ public class RunGame {
                 System.out.println("     You have defeated the enemy!!!");
                 runFight = true;
                 System.out.println("     You have gained: " + BuildGame.villanWinExperience(player, enemy) + "XP!");
-                System.out.println("EXP --> " + player.get_experience());
+                levelUpCheck(player);
                 SaveLoadHandler.replaceFile(player);
             }
             if (player.get_hitpoints() <= 0) {
@@ -255,8 +256,23 @@ public class RunGame {
         else
             return false;
     }
-//    private static void runDefend(Hero player, Villan enemy){
-//        int effect = enemy.get_attack() - (player.get_defense() * 2);
-//    }
-    ////--------
+    private static boolean levelUpCheck(Hero player){
+        double expToLevel = (player.get_level()*1000) + ((Math.pow((player.get_level() - 1), 2)*450));
+        if ((player.get_experience()) >= expToLevel){
+            player.set_level(player.get_level() + 1);
+            player.set_experience(player.get_experience() - expToLevel);
+            System.out.println("     You Have Leveled Up!!!");
+            return true;
+        }
+        return false;
+    }
 }
+
+//    HERO LEVELING FORMULA:
+//        level*1000+(level - 1)^2*450
+//        EG:
+//        level 1 = 1000XP
+//        level 2 = 2450XP
+//        level 3 = 4800XP
+//        level 4 = 8050XP
+//        level 5 = 12200XP

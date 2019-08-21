@@ -12,7 +12,7 @@ public  abstract class BaseHero{
     public String _attackArt;
     public String _defenseArt;
     public int _level;
-    public int _experience;
+    public double _experience;
     public int _attack;
     public int _defense;
     public int _hitpoints;

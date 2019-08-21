@@ -37,19 +37,19 @@ public class FightOutput {
     private static void printBat(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        System.out.println("    You have encountered a Bat");
+        System.out.println("\033[35;1m"+"    You have encountered a Bat");
         System.out.println("        =/\\                 /\\=");
         System.out.println("        / \\'._   (\\_/)   _.'/ \\");
         System.out.println("       / .''._'--(o.o)--'_.''. \\");
         System.out.println("      /.' _/ |`'=/ \" \\='`| \\_ `.\\");
         System.out.println("     /` .' `\\;-,'\\___/',-;/` '. '\\");
         System.out.println("    /.-'       `\\(-V-)/`       `-.\\");
-        System.out.println("    `            \"   \"            `");
+        System.out.println("    `            \"   \"            `"+"\033[35;0m");
     }
     private static void printDarkFairy(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        System.out.println("    You have encountered a Dark Fairy");
+        System.out.println("\033[36;1m"+"    You have encountered a Dark Fairy");
         System.out.println("          o    o");
         System.out.println("           \\__/,'`.,'`._,");
         System.out.println("          /,-. \\  /    <_,");
@@ -69,12 +69,12 @@ public class FightOutput {
         System.out.println("              |/\\(");
         System.out.println("              |(_\\\\_");
         System.out.println("              | / \\ (");
-        System.out.println("             /_/   \\_\\");
+        System.out.println("             /_/   \\_\\"+"\033[36;0m");
     }
     private static void printDragon(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        System.out.println("    You have encountered a Dragon");
+        System.out.println("\033[31;1m"+"    You have encountered a Dragon");
         System.out.println("                   \\||/");
         System.out.println("                   |  @___oo");
         System.out.println("         /\\  /\\   / (__,,,,|");
@@ -85,12 +85,12 @@ public class FightOutput {
         System.out.println("    <  >      |(,,) )__)");
         System.out.println("     ||      /    \\)___)\\");
         System.out.println("     | \\____(      )___) )___");
-        System.out.println("      \\______(_______;;; __;;;");
+        System.out.println("      \\______(_______;;; __;;;"+"\033[31;0m");
     }
     private static void printGoblin(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        System.out.println("    You have encountered a Goblin");
+        System.out.println("\033[32;1m"+"    You have encountered a Goblin");
         System.out.println("           ,      ,");
         System.out.println("          /(.-\"\"-.)\\");
         System.out.println("      |\\  \\/      \\/  /|");
@@ -101,12 +101,12 @@ public class FightOutput {
         System.out.println("         \\ \\__/\\__/ /");
         System.out.println("       ___\\ \\|--|/ /___");
         System.out.println("     /`    \\      /    `\\");
-        System.out.println("    /       '----'       \\");
+        System.out.println("    /       '----'       \\"+"\033[32;0m");
     }
     private static void printRockGiant(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        System.out.println("    You have encountered a Rock Giant");
+        System.out.println("\033[37;1m"+"    You have encountered a Rock Giant");
         System.out.println("                   (    )");
         System.out.println("                  ((((()))");
         System.out.println("                  |o\\ /o)|");
@@ -129,12 +129,12 @@ public class FightOutput {
         System.out.println("                           ((  )");
         System.out.println("                            / /");
         System.out.println("                          _/,/'");
-        System.out.println("                        /,/,\"");
+        System.out.println("                        /,/,\""+"\033[37;0m");
     }
     private static void printSkeleton(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        System.out.println("    You have encountered a Skeleton");
+        System.out.println("\033[37;1m"+"    You have encountered a Skeleton");
         System.out.println("        .-.");
         System.out.println("       (o.o)");
         System.out.println("        |=|");
@@ -148,12 +148,12 @@ public class FightOutput {
         System.out.println("       () ()");
         System.out.println("       || ||");
         System.out.println("       || ||");
-        System.out.println("      ==' '==");
+        System.out.println("      ==' '=="+"\033[37;0m");
     }
     private static void printTroll(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        System.out.println("    You have encountered a Troll");
+        System.out.println("\033[32;1m"+"    You have encountered a Troll");
         System.out.println("         .:\\:/:.");
         System.out.println("       .:\\:\\:/:/:.");
         System.out.println("      :.:\\:\\:/:/:.:");
@@ -166,47 +166,47 @@ public class FightOutput {
         System.out.println("     /_//  /^\\  \\\\_\\");
         System.out.println("     WW(  (   )  )WW");
         System.out.println("      __\\,,\\ /,,/__");
-        System.out.println("     (______Y______)");
+        System.out.println("     (______Y______)"+"\033[32;0m");
     }
 
     private static void printFightSplash(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        System.out.println("                            ______  ___ _____ _____ _      _____");
-        System.out.println("                   /\\       | ___ \\/ _ \\_   _|_   _| |    |  ___|");
-        System.out.println("                   )( _____ | |_/ / /_\\ \\| |   | | | |    | |__  ____________________ ");
-        System.out.println("        (_)///////(**)_____ | ___ \\  _  || |   | | | |    |  __| ___________________/ ");
-        System.out.println("                   )(       | |_/ / | | || |   | | | |____| |___ ");
-        System.out.println("                   \\/       \\____/\\_| |_/\\_/   \\_/ \\_____/\\____/");
+        System.out.println("\033[31;1m"+"                            ______  ___ _____ _____ _      _____"+"\033[31;1m");
+        System.out.println("\033[34;1m"+"                   /\\"+"\033[34;0m"+"\033[31;1m"+"       | ___ \\/ _ \\_   _|_   _| |    |  ___|"+"\033[31;0m");
+        System.out.println("\033[34;1m"+"                   )( _____"+"\033[34;0m"+"\033[31;1m"+" | |_/ / /_\\ \\| |   | | | |    | |__  "+"\033[31;0m"+"\033[34;1m"+"____________________ "+"\033[34;0m");
+        System.out.println("\033[34;1m"+"        (_)///////(**)_____"+"\033[34;0m"+"\033[31;1m"+" | ___ \\  _  || |   | | | |    |  __| "+"\033[31;0m"+"\033[34;1m"+"___________________/ "+"\033[34;0m");
+        System.out.println("\033[34;1m"+"                   )("+"\033[34;0m"+"\033[31;1m"+"       | |_/ / | | || |   | | | |____| |___ "+"\033[31;0m");
+        System.out.println("\033[34;1m"+"                   \\/"+"\033[34;0m"+"\033[31;1m"+"       \\____/\\_| |_/\\_/   \\_/ \\_____/\\____/"+"\033[31;0m");
     }
 
     private static void printFightStats( Hero player, Villan enemy){
-        System.out.println("                          _______________________________________");
+        System.out.println("\033[32;1m"+"                          _______________________________________"+"\033[32;0m");
         // Name Line
-        System.out.print("                          | " + player.get_name());
+        System.out.print("\033[32;1m"+"                          | " + player.get_name()+"\033[32;0m");
         for (int i = player.get_name().length(); i < 17; i++)
             System.out.print(" ");
-        System.out.print("| " + enemy.get_name());
+        System.out.print("\033[32;1m"+"| " + enemy.get_name()+"\033[32;0m");
         for (int i = enemy.get_name().length(); i < 17; i++)
             System.out.print(" ");
-        System.out.print("|\n");
-        System.out.println("                          |__________________|__________________|");
+        System.out.print("\033[32;1m"+"|\n"+"\033[32;0m");
+        System.out.println("\033[32;1m"+"                          |__________________|__________________|"+"\033[32;0m");
         // Attack Line
-        printStatLine("ATK", player.get_attack(), enemy.get_attack());
+        printStatLine("\033[33;1m"+"ATK"+"\033[33;0m", player.get_attack(), enemy.get_attack());
         // Defense Line
-        printStatLine("DEF", player.get_defense(), enemy.get_defense());
+        printStatLine("\033[34;1m"+"DEF"+"\033[34;0m", player.get_defense(), enemy.get_defense());
         // Hitpoints
-        printStatLine("HP ", player.get_hitpoints(), enemy.get_hitpoints());
-        System.out.println("                          |__________________|__________________|");
+        printStatLine("\033[31;1m"+"HP "+"\033[31;0m", player.get_hitpoints(), enemy.get_hitpoints());
+        System.out.println("\033[32;1m"+"                          |__________________|__________________|"+"\033[32;0m");
     }
     private static void printStatLine(String statType, int playerStat, int enemyStat){
-        System.out.print("                          | " + statType + ": " + playerStat);
+        System.out.print("\033[32;1m"+"                          | "+"\033[32;0m" + statType + ": " + playerStat);
         for (int i = String.valueOf(playerStat).length(); i < 12; i++)
             System.out.print(" ");
-        System.out.print("| " + statType + ": " + enemyStat);
+        System.out.print("\033[32;1m"+"| "+"\033[32;0m" + statType + ": " + enemyStat);
         for (int i = String.valueOf(enemyStat).length(); i < 12; i++)
             System.out.print(" ");
-        System.out.print("|\n");
+        System.out.print("\033[32;1m"+"|\n"+"\033[32;0m");
     }
 }
 

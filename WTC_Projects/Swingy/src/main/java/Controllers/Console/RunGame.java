@@ -1,8 +1,11 @@
 package Controllers.Console;
 
-import Models.Heros.Hero;
-import Views.CommentaryOutput;
+import Models.Artifacts.Artifact;
+import Models.Artifacts.ArtifactGenerator;
+import Models.Heros.*;
 import Models.Enemies.*;
+import Models.Artifacts.*;
+import Views.CommentaryOutput;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -215,6 +218,7 @@ public class RunGame {
                 System.out.println("     You have defeated the enemy!!!");
                 runFight = true;
                 System.out.println("     You have gained: " + BuildGame.villanWinExperience(player, enemy) + "XP!");
+                runArtifactSpawn(player, enemy);
                 levelUpCheck(player);
                 SaveLoadHandler.replaceFile(player);
             }
@@ -265,6 +269,33 @@ public class RunGame {
             return true;
         }
         return false;
+    }
+    private static void runArtifactSpawn(Hero player, Villan enemy){
+        Random dropChance = new Random();
+        int chance = dropChance.nextInt(10);
+        Artifact artifact = ArtifactGenerator.generateArtifact(enemy.get_name());
+        if (chance == 5 || chance == 0 || chance == 9 || chance == 7 || chance == 3){
+            String effect = checkArtifactType(player, artifact);
+            System.out.println("     You have found the artifact: " + artifact.get_name() + " gaining "+ artifact.get_effect() + " " + effect);
+        }
+    }
+    private static String checkArtifactType(Hero player, Artifact art){
+        String type = null;
+        switch (art.get_type()){
+            case "Helm":
+                player.set_hitpoints(player.get_hitpoints() + art.get_effect());
+                type = "Hitpoints";
+                break;
+            case "Armor":
+                player.set_defense(player.get_defense() + art.get_effect());
+                type = "Defense";
+                break;
+            case "Weapon":
+                player.set_attack(player.get_attack() + art.get_effect());
+                type = "Attack";
+                break;
+        }
+        return type;
     }
 }
 

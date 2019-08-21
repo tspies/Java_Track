@@ -2,13 +2,10 @@ package Models.Artifacts;
 
 import lombok.Getter;
 import lombok.Setter;
-
-public abstract class BaseArtifact implements Artifact {
-    @Setter
-    @Getter
+@Getter
+@Setter
+public abstract class BaseArtifact{
+    public String _name;
     public int _effect;
-    @Setter
-    @Getter
     public String _type;
-
 }

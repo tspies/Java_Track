@@ -1,22 +1,22 @@
 package Models.Artifacts;
 
 public class ArtifactGenerator {
-    public Artifact generateArtifact(String enemyType){
+    public static Artifact generateArtifact(String enemyType){
         switch(enemyType){
             case "Bat":
-                return new BatWingsArtifact();
+                return new Artifact("Bat Wings","Armor", 10);
             case "DarkFairy":
-                return new FairyDustArtifact();
+                return new Artifact("Fairy Dust","Helm", 10);
             case "Dragon":
-                return new DragonSlayerSwordArtifact();
+                return new Artifact("Dragon Slayer Sword","Weapon", 10);
             case "Goblin":
-                return new GoblinPotionArtifact();
+                return new Artifact("Goblin Potion","Helm", 10);
             case "Rock Giant":
-                return new StoneShieldArtifact();
+                return new Artifact("Stone Shield","Armor", 10);
             case "Skeleton":
-                return new BoneSkullArtifact();
+                return new Artifact("Bone Skull","Armor", 10);
             case "Troll":
-                return new TrollClubArtifact();
+                return new Artifact("Troll's Club","Weapon", 10);
             default:
                 return (null);
         }

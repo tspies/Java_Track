@@ -1,4 +1,4 @@
-testmage,mage,3,3980.0,150,100,100,~./r    
+testmage,mage,4,2440.0,150,130,100,~./r    
 hello,mage,3,3000,90,10,990,~./r    
 Swordman,warrior,3,1350,120,30,120,~./r    
 test,mage,2,1975,140,10,590,~./r    

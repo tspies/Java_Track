@@ -4,11 +4,11 @@ public class HeroFactory {
     public static Hero generateNewHero(String heroName, String heroClass){
         switch(heroClass.toLowerCase()){
             case "mage":
-                return new Hero(heroName, heroClass, 40, 10, 80);
+                return new Hero(heroName, heroClass, 40, 5, 120);
             case "rogue":
-                return new Hero(heroName, heroClass, 30, 20, 90);
+                return new Hero(heroName, heroClass, 30, 9, 130);
             case "warrior":
-                return new Hero(heroName, heroClass, 20, 30, 120);
+                return new Hero(heroName, heroClass, 25, 13, 160);
             default:
                 return null;
         }

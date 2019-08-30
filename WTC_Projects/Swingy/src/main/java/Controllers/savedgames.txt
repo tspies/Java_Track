@@ -1,5 +1,6 @@
-testmage,mage,4,2440.0,150,130,100,~./r    
-hello,mage,3,3000,90,10,990,~./r    
-Swordman,warrior,3,1350,120,30,120,~./r    
-test,mage,2,1975,140,10,590,~./r    
-Ridgie,Mage,1,485.0,40,10,60,~./r    
+Swordman,warrior,4,5130.0,125,40,740,~./r    
+Ridgie,Mage,1,485.0,40,10,60,~./r
+FireMan,warrior,2,1480.0,25,18,1005,~./r
+testmage,mage,1,0.0,40,5,120,~
+testrogue,rogue,1,0.0,30,9,130,~
+testwarrior,warrior,1,0.0,25,13,160,~

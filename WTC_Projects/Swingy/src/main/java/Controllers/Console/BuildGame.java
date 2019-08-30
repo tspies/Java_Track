@@ -31,13 +31,13 @@ public class BuildGame {
         Scanner scan = new Scanner(System.in);
         Hero player = SaveLoadHandler.loadHero();
         String[][] map = generateMap(player);
-        RunGame.runGameLoop(player, map);
+        nextGame = RunGame.runGameLoop(player, map);
         while (nextGame){
             System.out.println("Do you want to continue? ('yes' to continue or 'no' to exit)");
             String playAgain = scan.nextLine();
             if(playAgain.toLowerCase().equals("yes")){
                 map = generateMap(player);
-                RunGame.runGameLoop(player, map);
+                nextGame = RunGame.runGameLoop(player, map);
             }
             else if (playAgain.toLowerCase().equals("no")){
                 System.out.println("Good Bye ^_^");

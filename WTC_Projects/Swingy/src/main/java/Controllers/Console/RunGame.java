@@ -10,10 +10,11 @@ import Views.CommentaryOutput;
 import java.util.Random;
 import java.util.Scanner;
 public class RunGame {
-    public static void runGameLoop(Hero player, String[][] map) {
+    public static boolean runGameLoop(Hero player, String[][] map) {
         boolean noob = true;
         boolean exit = false;
         boolean winMission = false;
+        boolean win = false;
         Scanner scan = new Scanner(System.in);
         if (player.get_level() == 1 && noob) {
             CommentaryOutput.introOut(player.get_name());
@@ -23,7 +24,6 @@ public class RunGame {
         while (!exit) {
             CommentaryOutput.nextMoveOut();
             String move = scan.nextLine();
-            boolean win = false;
             switch (move.toLowerCase()) {
                 case "north":
                 case "n":
@@ -69,6 +69,7 @@ public class RunGame {
             levelUpCheck(player);
             SaveLoadHandler.replaceFile(player);
         }
+        return win;
     }
 
     private static boolean moveHero(String dir, Hero player, String[][] map) {
@@ -141,10 +142,11 @@ public class RunGame {
                 }
                 else{
                     System.out.println("     You have died");
+                    SaveLoadHandler.replaceFile(player);
+                    System.exit(0);
                 }
             }
         }
-
         return win;
     }
     private static boolean encounterEnemy(Hero player, Villan enemy){
@@ -157,7 +159,7 @@ public class RunGame {
             String fightOrFlight = scan.nextLine();
             switch(fightOrFlight.toLowerCase()){
                 case "fight":{
-                    System.out.println("FIGHTING");
+                    System.out.println("     FIGHTING");
                     fight = true;
                     validation = true;
                     break;
@@ -165,13 +167,13 @@ public class RunGame {
                 case "run":{
                     if (runChance.nextInt(2) == 1)
                     {
-                        System.out.println("RUNNING");
+                        System.out.println("     RUNNING");
                         fight = false;
                         validation = true;
                     }
                     else{
-                        System.out.println("RUN FAILED, DUM DUM DUUUUUUM!!!");
-                        System.out.println("Press any key to continue...");
+                        System.out.println("     RUN FAILED, DUM DUM DUUUUUUM!!!");
+                        System.out.println("     Press any key to continue...");
                         scan.nextLine();
                         fight = true;
                         validation = true;
@@ -191,7 +193,7 @@ public class RunGame {
         boolean winFight = false;
         while(!runFight){
             Views.FightOutput.loadFightScreen(player, enemy);
-            System.out.println("                                       Type 'a' attack");
+            System.out.println("                                    Type 'a' to attack");
             String line = scan.nextLine();
             switch(line.toLowerCase()){
                 case "a":
@@ -217,7 +219,8 @@ public class RunGame {
             if (winFight){
                 System.out.println("     You have defeated the enemy!!!");
                 runFight = true;
-                System.out.println("     You have gained: " + BuildGame.villanWinExperience(player, enemy) + "XP!");
+                System.out.println("     You have gained: " + BuildGame.villanWinExperience(player, enemy) + "XP and restored: 50 HP");
+                player.set_hitpoints(player.get_hitpoints() + 50);
                 runArtifactSpawn(player, enemy);
                 levelUpCheck(player);
                 SaveLoadHandler.replaceFile(player);
@@ -265,6 +268,9 @@ public class RunGame {
         if ((player.get_experience()) >= expToLevel){
             player.set_level(player.get_level() + 1);
             player.set_experience(player.get_experience() - expToLevel);
+            player.set_hitpoints(player.get_hitpoints() + ((player.get_level()/2)*100));
+            player.set_hitpoints(player.get_attack() + 5);
+            player.set_defense(player.get_defense() + 5);
             System.out.println("     You Have Leveled Up!!!");
             return true;
         }

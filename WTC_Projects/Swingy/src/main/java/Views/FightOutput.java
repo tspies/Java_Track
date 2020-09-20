@@ -10,7 +10,7 @@ public class FightOutput {
     }
     public static void encounterOutput(Villan enemy){
         switch(enemy.get_name()){
-            case "Bat":
+            ca.se "Bat":
                 printBat();
                 break;
             case "Dark Fairy":

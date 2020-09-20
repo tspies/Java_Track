@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 testmage,mage,4,5440.0,260,140,1100,~./r    
 hello,mage,3,3000,90,10,990,~./r    
 Swordman,warrior,3,1875.0,120,40,80,~./r    
@@ -7,3 +8,11 @@ test,mage,3,100.0,140,10,575,~./r
 test1,mage,2,375.0,40,30,70,~./r    
 Mushu,rogue,2,145.0,30,40,60,~./r    
 Dan,rogue,1,485.0,30,30,60,~./r    
+=======
+Swordman,warrior,4,5130.0,125,40,740,~./r    
+Ridgie,Mage,1,485.0,40,10,60,~./r
+FireMan,warrior,2,1480.0,25,18,1005,~./r
+testmage,mage,1,0.0,40,5,120,~
+testrogue,rogue,1,0.0,30,9,130,~
+testwarrior,warrior,1,0.0,25,13,160,~
+>>>>>>> 605478ef14254ae042aa6eb73733e19f784b30db
